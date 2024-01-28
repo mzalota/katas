@@ -39,14 +39,14 @@ public class Katas {
         }
     }
 
-
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
     // 3) Intention: "Invert if condition" (code in else condition is much shorter than in if condition, so we bring it to the top of function )
     // 4) Intention: "Remove redundant else"
     // 5) Select all lines at the bottom of the function before if statement, Intention: "Move up into if statement branches"
-    // 6) Intention: "Invert if condition" (code in else condition is much shorter than in if condition, so we bring it to the top of function )
-    // 7) Intention: Remove unnecessary 'return'
+    // 6) Intention: "Invert if condition"
+    // 7) Intention: "Remove redundant else"
+    // 8) Intention: Remove unnecessary 'return'
     public void ifWithElseNested (boolean isHungry, boolean foodIsReady) {
         if (isHungry) {
             System.out.println("In if top: she is hungry");
@@ -61,5 +61,4 @@ public class Katas {
             System.out.println("In else: she is NOT hungry");
         }
     }
-
 }
