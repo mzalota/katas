@@ -61,4 +61,34 @@ public class Katas {
             System.out.println("In else: she is NOT hungry");
         }
     }
+
+    //1) Intention: "Extract common part from 'if'"
+    //2) Intention: "Move up into if statement branches"
+    public void ifExtractCommon (boolean argumentOne) {
+        String message;
+        if (argumentOne) {
+            message = "Message 111";
+            System.out.println("If ACTION");
+        } else {
+            message = "Message 222";
+            System.out.println("Else ACTION");
+        }
+        System.out.println(message);
+    }
+
+    //1) Comment out one line with "Top message" string (otherwise IntelliJ is too confused)
+    //2) Intention: "Extract common part from 'if'" -> "Bottom message" is extracted behind if
+    //3) Uncomment out one line from 1)
+    //4) Intention: "Extract common part from 'if'(may change semantics)" -> "Top message" is extracted above if
+    public void ifExtractCommon2 (boolean argumentOne) {
+        if (argumentOne) {
+            System.out.println("Top message");
+            System.out.println("If ACTION");
+            System.out.println("Bottom message");
+        } else {
+            System.out.println("Top message");
+            System.out.println("Else ACTION");
+            System.out.println("Bottom message");
+        }
+    }
 }
