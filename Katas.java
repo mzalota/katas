@@ -92,6 +92,24 @@ public class Katas {
         }
     }
 
+    // 1) Put cursor on else before if - Intention: Split 'else if'
+    // 2) Manually add explicit "return;" at the end of the function
+    // 3) Intention: "Move up into if statement branches"
+    // 4) Intention: "Remove redundant else"
+    // 3) Intention: "Move up into if statement branches" (return; into if-else)
+    // 4) Intention: "Remove unnecessary 'return'"
+    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    public void ifWithElseIf(boolean firstArgument, boolean secondArgument) {
+        if (firstArgument) {
+            System.out.println("in if");
+        } else if (secondArgument) {
+            System.out.println("in else-if");
+        } else {
+            System.out.println("in else");
+        }
+    }
+
+
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
     // 3) Intention: "Invert if condition" (code in else condition is much shorter than in if condition, so we bring it to the top of function )
@@ -100,21 +118,20 @@ public class Katas {
     // 6) Intention: "Invert if condition"
     // 7) Intention: "Remove redundant else"
     // 8) Intention: Remove unnecessary 'return'
-    public void ifWithElseNested (boolean isHungry, boolean foodIsReady) {
+    public void ifWithElseNestedXX (boolean isHungry, boolean foodIsReady) {
         if (isHungry) {
             System.out.println("In if top: she is hungry");
             if (foodIsReady) {
                 System.out.println("In inner else: food is ready");
             } else {
                 System.out.println("In inner else: food is NOT ready");
-                System.out.println("In inner else: ACTION - cook something tasty");
+                fooMethod("ACTION - cook something tasty");
             }
-            System.out.println("In if bottom: ACTION - eat the food");
+            barMethod("ACTION - eat the food");
         } else {
             System.out.println("In else: she is NOT hungry");
         }
     }
-
 
 
 
