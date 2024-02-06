@@ -1,12 +1,6 @@
 public class SimplifyingIfs extends NestedIfToPreconditions {
 
 
-
-
-
-
-
-
     //1) Intention: "Extract common part from 'if'"
     //2) Intention: "Move up into if statement branches"
     public void ifExtractCommonPart (boolean argumentOne) {
@@ -57,7 +51,5 @@ public class SimplifyingIfs extends NestedIfToPreconditions {
             fooMethod("Message 222");
         }
     }
-
-
 
 }
