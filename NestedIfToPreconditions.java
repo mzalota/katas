@@ -30,22 +30,11 @@ public class NestedIfToPreconditions {
     //
     // To repeat from start:
     // A) Intention: "Transform body to single exit-point form"
-    // B) Then Intention"Merge nested 'ifs'
+    // B) Intention: "Merge nested 'ifs'
     public void ifMultipleConditions(boolean firstArgument, Boolean secondArgument) {
         if (!firstArgument && (secondArgument != null) && !secondArgument) {
             System.out.println("in if");
         }
-    }
-
-
-    // 1) Intention: "Invert if condition"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
-    public void ifNotAtFunctionEnd(boolean firstArgument, boolean secondArgument) {
-        System.out.println("At function start");
-        if (firstArgument) {
-            System.out.println("in inner if");
-        }
-        System.out.println("At function end");
     }
 
 
@@ -78,6 +67,22 @@ public class NestedIfToPreconditions {
             System.out.println("in else");
         }
     }
+
+
+    // 1) Intention: "Move up into if statement branches"
+    // 2) Manually add explicit "return;" at the end of the function
+    // 3) Intention: "Move up into if statement branches"
+    // 4) Intention: "Invert if condition"
+    // 5) Intention: "Remove redundant else"
+    // 6) Intention: "Remove unnecessary 'return'"
+    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    public void ifNotAtFunctionEnd(boolean firstArgument, boolean secondArgument) {
+        if (firstArgument) {
+            System.out.println("in inner if");
+        }
+        System.out.println("At function end");
+    }
+
 
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
