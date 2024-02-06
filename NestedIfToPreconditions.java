@@ -22,17 +22,17 @@ public class NestedIfToPreconditions {
         }
     }
 
-    // 1) Intention: "Extract if (firstArgument)"
+    // 1) Intention: "Extract if (!firstArgument)"
     // 2) Intention: "Invert if condition"
-    // 3) Intention: "Extract if (!secondArgument)"
+    // 3) Intention: "Extract if ((!secondArgument != null))"
     // 4) Intention: "Invert if condition"
     // 5) Intention: "Invert if condition" (on third if)
     //
     // To repeat from start:
     // A) Intention: "Transform body to single exit-point form"
     // B) Then Intention"Merge nested 'ifs'
-    public void ifMultipleConditions(boolean firstArgument, boolean secondArgument, boolean thirdArgument) {
-        if (firstArgument && !secondArgument && thirdArgument) {
+    public void ifMultipleConditions(boolean firstArgument, Boolean secondArgument) {
+        if (!firstArgument && (secondArgument != null) && !secondArgument) {
             System.out.println("in if");
         }
     }
