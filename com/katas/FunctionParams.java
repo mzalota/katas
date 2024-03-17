@@ -2,6 +2,14 @@ package com.katas;
 
 public class FunctionParams {
 
+    //---Push logic into subfunction
+    public int getBaselinePrice(String priceGroupId, int tarifCategory) {
+        int baselineMonth = 01;
+        int baselineYear = 2001;
+        return lookupPriceInDB(baselineMonth, baselineYear, tarifCategory, Integer.parseInt(priceGroupId));
+    }
+
+
     //1) Refactoring: "Introduce Parameter Object...": Class name PriceGroupId, select priceGroupId
 
     //-- move behavior (converting String to Int) into PriceGroupId class.
@@ -11,7 +19,7 @@ public class FunctionParams {
     //-- clean up PriceGroupId class a bit: get rid of unused getPriceGroupId() method
     //4) Refactoring: "Inline Method": PriceGroupId.getPriceGroupId()
 
-    //-- pusch PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int
+    //-- push PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int
     //5) Refactoring: "Extract Method": tmpMethod() for code "lookupPriceInDB(month, year, tarifCategory, priceGroupId1.getAsInt())"
     //6) Refactoring: "Inline Method...": lookupPriceInDB()
     //7) Refactoring: "Rename..." tmpMethod() to lookupPriceInDB()
