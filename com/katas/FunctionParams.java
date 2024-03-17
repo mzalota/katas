@@ -5,8 +5,8 @@ public class FunctionParams {
 
     //---Push logic into subfunction
 
-    //1) Refactoring: "Extract Method": extractedAAA() - content- last two lines of the method
-    //2) Refactoring: "Inline Method...": lookupPriceInDB(). Choose option "Inline this only and keep method". In "Process Duplicates" select Replace
+    //1) Refactoring: "Extract Method": extractedAAA() - content- last two lines of the method. Choose option "Inline this only and keep method". In "Process Duplicates" select Replace
+    //2) Refactoring: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
     //3) Refactoring: "Rename..." extractedAAA() to lookupPriceInDB()
     public int getBaselinePrice(String priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
