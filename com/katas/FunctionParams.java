@@ -2,11 +2,18 @@ package com.katas;
 
 public class FunctionParams {
 
+
     //---Push logic into subfunction
+
+    //1) Refactoring: "Extract Method": extractedAAA() - content- last two lines of the method
+    //2) Refactoring: "Inline Method...": lookupPriceInDB(). Choose option "Inline this only and keep method". In "Process Duplicates" select Replace
+    //3) Refactoring: "Rename..." extractedAAA() to lookupPriceInDB()
     public int getBaselinePrice(String priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
         int baselineYear = 2001;
-        return lookupPriceInDB(baselineMonth, baselineYear, tarifCategory, Integer.parseInt(priceGroupId));
+
+        int priceGroupIdInt = Integer.parseInt(priceGroupId);
+        return lookupPriceInDB(baselineMonth, baselineYear, tarifCategory, priceGroupIdInt);
     }
 
 
@@ -27,7 +34,8 @@ public class FunctionParams {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
         try {
-            return lookupPriceInDB(month, year, tarifCategory, Integer.parseInt(priceGroupId));
+            int priceGroupInt = Integer.parseInt(priceGroupId);
+            return lookupPriceInDB(month, year, tarifCategory, priceGroupInt);
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
             return 0;
