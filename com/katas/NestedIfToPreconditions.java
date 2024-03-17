@@ -1,3 +1,5 @@
+package com.katas;
+
 public class NestedIfToPreconditions {
 
     // 1) Intention: "Invert if condition"
