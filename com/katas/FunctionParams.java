@@ -2,10 +2,19 @@ package com.katas;
 
 public class FunctionParams {
 
+    //1) Refactoring: "Introduce Parameter Object...": Class name PriceGroupId, select priceGroupId
 
-    //1) Refactoring: "Introduce Parameter Object": Class name PriceGroupId, select priceGroupId
-    //2) Refactoring: "Introduce Parameter Object": Class name PriceGroup, select tarifCategory and date
-    //3) Refactoring: "Move instance method"
+    //-- move behavior (converting String to Int) into PriceGroupId class.
+    //2) Refactoring: "Extract Method": getAsInt() for code "Integer.parseInt(priceGroupId1.priceGroupId())"
+    //3) Refactoring: "Convert to Instance Method...": Select PriceGroup class as destination.
+
+    //-- clean up PriceGroupId class a bit: get rid of unused getPriceGroupId() method
+    //4) Refactoring: "Inline Method": PriceGroupId.getPriceGroupId()
+
+    //-- pusch PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int
+    //5) Refactoring: "Extract Method": tmpMethod() for code "lookupPriceInDB(month, year, tarifCategory, priceGroupId1.getAsInt())"
+    //6) Refactoring: "Inline Method...": lookupPriceInDB()
+    //7) Refactoring: "Rename..." tmpMethod() to lookupPriceInDB()
     public int getPrice(String priceGroupId, int tarifCategory, String date) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
@@ -16,12 +25,8 @@ public class FunctionParams {
             return 0;
         }
     }
-
     protected int lookupPriceInDB(int month, int year, int tarifCategory, int priceGroupId) {
-        return 321;
+        return priceGroupId*tarifCategory+year/month;
     }
 
-    protected void barMethod(String message) {
-        System.out.println(message);
-    }
 }
