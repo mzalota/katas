@@ -1,6 +1,6 @@
 package com.katas;
 
-public class FunctionParams {
+public class UpAndDownStack {
 
     // Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
     //---Push logic "down-stack" (to the function below)
@@ -25,16 +25,6 @@ public class FunctionParams {
     }
 
 
-    //1) Refactoring: "Introduce Parameter Object...": Class name PriceGroupId, select priceGroupId
-
-    //-- move behavior (converting String to Int) into PriceGroupId class.
-    //2) Refactoring: "Extract Method": getAsInt() for code "Integer.parseInt(priceGroupId1.priceGroupId())"
-    //3) Refactoring: "Convert to Instance Method...": Select PriceGroup class as destination.
-
-    //-- clean up PriceGroupId class a bit: get rid of unused getPriceGroupId() method
-    //4) Refactoring: "Inline Method": PriceGroupId.getPriceGroupId()
-
-    //-- push PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int (Use "Push logic down-stack" Refactoring Flowout)
     public int getPrice(String priceGroupId, int tarifCategory, String date) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
