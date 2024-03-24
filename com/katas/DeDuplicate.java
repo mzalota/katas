@@ -3,22 +3,6 @@ package com.katas;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-/*
-##### Refactoring flow: "Extract Repository"
-Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and loadPackageDiscount(). We will move them to a new repository class one by one.
-
-9) Try to merge jdbc connection string in lookupPackagePriceInDB with field jdbcConnection
-   9a) Refactor: Extract Field. Select seemingly duplicate string "postgresql://username:password@db.internal.com:5555/userdata?".
-   9b) In "Initialize in" select "field declaration"
-   9c) Check "Replace all occurrences (2)" box. Notice that the other occurrence was found and is, actually, identical!
-   9d) Name new field with some temporary name, like "jdbcConnectionTemp"
-   9e) Refactor: "Inline Field", the original jdbcConnection, Select "Inline all and remove the field"
-   9f) Refactor: Rename "jdbcConnectionTemp" to "jdbcConnection"
-
-*/
-
-
 public class DeDuplicate {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
@@ -68,29 +52,6 @@ public class DeDuplicate {
         return responseFromDB;
     }
 
-    private static String queryBuilder1(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
-        String queryStr = "";
-        queryStr += "SELECT price FROM price_table WHERE";
-        queryStr += " ";
-        queryStr += "price_group_id = "+ priceGroupIdInt;
-        queryStr += " AND ";
-        queryStr += "category_id = "+ tarifCategory;
-        queryStr += " AND ";
-        queryStr += "validity_month = '"+ validityYear +"-"+ validitMonth +"'";
-        return queryStr;
-    }
-
-    private int lookupPriceInDBOrig(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
-
-        String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
-        logger.log (Level.INFO, "Starting to read Price from DB, conn: "+jdbcConnectionForPrice);
-
-        //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
-        int responseFromDB = priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
-
-        return responseFromDB;
-    }
-
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
         int baselineYear = 2001;
@@ -100,18 +61,6 @@ public class DeDuplicate {
             return readPrices(baselineYear, baselineMonth, tarifCategory, priceGroupId);
         }
         return price;
-    }
-
-
-    private static String queryBuilder2(int year, int month, int tarifCategoryId, int priceGroupId) {
-        String selectedFields = "price";
-        String tableName = "price_table";
-        String whereClause = "";
-        whereClause += "price_group_id = '"+ priceGroupId +"'  AND ";
-        whereClause += "category_id = '"+ tarifCategoryId +"'  AND ";
-        whereClause += "validity_month = '"+ year +"-"+ month +"';";
-        String sql = "SELECT " + selectedFields + " FROM " + tableName + " WHERE "+whereClause +";";
-        return sql;
     }
 
     int executeQuery(String jdbcConnectionForPrice, String sqlQuery){
