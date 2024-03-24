@@ -28,17 +28,6 @@ public class ExtractRepository {
     private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
 
-    public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
-        int baselineMonth = 01;
-        int baselineYear = 2001;
-
-        int price = lookupPriceInDB(tarifCategory, baselineMonth, baselineYear, priceGroupId);
-        if (price == 0) {
-            return loadPackagePrice(null);
-        }
-        return price;
-    }
-
     private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
 
         String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
@@ -48,6 +37,17 @@ public class ExtractRepository {
         int responseFromDB = priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
 
         return responseFromDB;
+    }
+
+    public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
+        int baselineMonth = 01;
+        int baselineYear = 2001;
+
+        int price = lookupPriceInDB(tarifCategory, baselineMonth, baselineYear, priceGroupId);
+        if (price == 0) {
+            return loadPackagePrice(null);
+        }
+        return price;
     }
 
     public double getNettoPrice(int orderId, Integer priceGroupId, int tarifCategory, String date) {
