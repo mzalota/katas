@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 //   2a) In "Superclass name" enter PriceDiscountRepository
 //   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
 //   2c) In "Members To Form Superclass" grid select jdbcConnection(). Nothing else turned red. logger:Logger turned color blue necause it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
-//   2d) Click "Refactor" button. Problem Detected dialog pops up with message "Field ExtractRepository.logger is private and will not be accessible from method lookupPriceInDB(int, int, int, int).".
-//   2e) Click "Continue" button in Problems Detected dialog.
+//   2d) Click "Refactor" button.
+//   2e) In "Problem Detected" Click "Continue" button. We ignore message "Field ExtractRepository.logger is private and will not be accessible from method lookupPriceInDB(int, int, int, int).", because the new class will need its own logger field.
 //   2f) In "Analyse and Replace Usages" dialog, click "Yes" -> there will be no additional changes made.
 //   2g) In "Add file to Git" dialog click Add. (afterward when we perform Git Rollback, this file will automatically be deleted)
 //3) In PriceDiscountRepositry class
@@ -22,22 +22,10 @@ import java.util.logging.Logger;
 //   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
 //4) Navigate to definition of class ExtractRepository. Refactor: "Replace Inheritence with Delegation", click "Refactor" button
 
-public class ExtractRepository {
+public class ExtractRepository extends PriceDiscountRepository {
 
-    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
     private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
-
-    private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
-
-        String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
-        logger.log (Level.INFO, "Starting to read Price from DB, conn: "+jdbcConnectionForPrice);
-
-        //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
-        int responseFromDB = priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
-
-        return responseFromDB;
-    }
 
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
