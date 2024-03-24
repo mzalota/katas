@@ -60,7 +60,7 @@ Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and
 
 public class ExtractRepository {
 
-    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
+    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
     private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
 
@@ -110,7 +110,7 @@ public class ExtractRepository {
     }
 
     private double loadPackagePrice(Integer packageId) {
-        String jdbcConnectionForPackage = "postgresql://username:password@db.internal.com:5555/userdata?;param3=value3";
+        String jdbcConnectionForPackage = "postgresql://username:password@db.internal.com:5555/PriceDB?;param3=value3";
         logger.log (Level.INFO, "Starting to read PackagePrice from DB, conn: "+jdbcConnectionForPackage);
 
         if (packageId == null) {

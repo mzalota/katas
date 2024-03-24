@@ -21,7 +21,7 @@ Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and
 
 public class DeDuplicate {
 
-    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
+    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
     private static Logger logger = Logger.getLogger(DeDuplicate.class.getName());
 
 
