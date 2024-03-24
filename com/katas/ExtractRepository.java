@@ -6,19 +6,18 @@ import java.util.logging.Logger;
 
 // #####Refactoring flow: "Extract Repository"
 //
-//---Move logic into Repository
 //1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option)
 //2) In "Extact Superclass" dialog:
 //   2a) In "Superclass name" enter PriceDiscountRepository
-//   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
+//   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
 //   2c) In "Members To Form Superclass" grid select jdbcConnection(). Nothing else turned red. logger:Logger turned color blue necause it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
 //   2d) Click "Refactor" button. Problem Detected dialog pops up with message "Field ExtractRepository.logger is private and will not be accessible from method lookupPriceInDB(int, int, int, int).".
 //   2e) Click "Continue" button in Problems Detected dialog.
 //   2f) In "Analyse and Replace Usages" dialog, click "Yes" -> there will be no additional changes made.
 //   2g) In "Add file to Git" dialog click Add. (afterward when we perform Git rollback, this file will automatically be deleted)
-//3) in PriceDiscountRepositry class
-//   3a) add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
-//   3b) replace ExtractRepository.logger.log(...); with logger.log();
+//3) In PriceDiscountRepositry class
+//   3a) Add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
+//   3b) Replace ExtractRepository.logger.log(...); with logger.log();
 
 public class ExtractRepository {
 
