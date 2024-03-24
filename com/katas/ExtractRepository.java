@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 //
 // --- Refactor lookupPriceInDB() method into the new PriceDiscountRepository class
 //1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option)
-//2) In "Extact Superclass" dialog:
+//2) In "Extract Superclass" dialog:
 //   2a) In "Superclass name" enter PriceDiscountRepository
 //   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
 //   2c) In "Members To Form Superclass" grid select jdbcConnection(). Nothing else turned red. logger:Logger turned color blue necause it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
