@@ -25,12 +25,12 @@ public class DeDuplicate {
 	13) "Rename..." refactoring on "lookupPriceInDBNew()" to rename to "lookupPriceInDB()" (without New suffix)
      */
 
-    private int lookupPriceInDB(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
+    private int lookupPriceInDB(int tarifCategory, int validityMonth, int validityYear, int priceGroupIdInt) {
 
         String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
         logger.log (Level.INFO, "Starting to read Price from DB, conn: "+jdbcConnectionForPrice);
 
-        String queryStr = queryBuilder(validityYear, validitMonth, tarifCategory, priceGroupIdInt);
+        String queryStr = queryBuilder(validityYear, validityMonth, tarifCategory, priceGroupIdInt);
         return executeQuery(jdbcConnectionForPrice, queryStr);
     }
 
