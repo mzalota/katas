@@ -3,13 +3,28 @@ package com.katas;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DeDuplicate {
+/*
+In getBaselinePrice() method we see two different functions are called to get Price from DB: lookupPriceInDB() and readPrices()
+Lets try to refactor these two functions to see if they actually have identical behavior. (Differences in logging messages can be ignored)
+*/
+public class DeDuplicateFunctions {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
-    private static Logger logger = Logger.getLogger(DeDuplicate.class.getName());
+    private static Logger logger = Logger.getLogger(DeDuplicateFunctions.class.getName());
 
 
+    public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
+        int baselineMonth = 01;
+        int baselineYear = 2001;
+
+        int price = lookupPriceInDB(tarifCategory, baselineMonth, baselineYear, priceGroupId);
+        if (price == 0) {
+            return readPrices(baselineYear, baselineMonth, tarifCategory, priceGroupId);
+        }
+        return price;
+    }
     /*
+
     1) Right-click on DeDuplicat.java tab on top and select "Split Right". Align lookupPriceInDB() and readPrices() functions. You can jump between them with "Ctrl+Tab" shortcut
     2) Try "Extract Method" refactoring on last two lines from lookupPriceInDB() to see if the middle two lines in readPrices would be detected as identical.
     3) Undo, because IntelliJ did not detect duplication.
@@ -19,10 +34,11 @@ public class DeDuplicate {
     7) Functions look very similar, but log statements differ. Logging is not business logic. Just copy/paste log statements between functions to make log statements identical in both function.
     8) Select all statements in the body of one of the functions and "Extract Method" refactoring. In "Process Duplicates" dialog press "Replace" button.
 	9) Now rename newly created method to "lookupPriceInDBNew".
-	10) In lookupPriceInDBNew(), put curson on "commonLogic01()" and do "Inline Method..." refactoring. Select "Inline all and remove the method"
+	10) In lookupPriceInDBNew(), put cursor on "commonLogic01()" and do "Inline Method..." refactoring. Select "Inline all and remove the method"
 	11) "Inline Method..." readPrices()
 	12) "Inline Method..." lookupPriceInDB()
-	13) "Rename..." refactoring on "lookupPriceInDBNew()" to rename to "lookupPriceInDB()" (without New suffix)
+	13) "Rename..." refactoring on "lookupPriceInDBNew()" to rename to "lookupPriceInDB()" (remove "New" suffix at the end)
+
      */
 
     private int lookupPriceInDB(int tarifCategory, int validityMonth, int validityYear, int priceGroupIdInt) {
@@ -52,34 +68,9 @@ public class DeDuplicate {
         return responseFromDB;
     }
 
-    public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
-        int baselineMonth = 01;
-        int baselineYear = 2001;
-
-        int price = lookupPriceInDB(tarifCategory, baselineMonth, baselineYear, priceGroupId);
-        if (price == 0) {
-            return readPrices(baselineYear, baselineMonth, tarifCategory, priceGroupId);
-        }
-        return price;
-    }
-
-    int executeQuery(String jdbcConnectionForPrice, String sqlQuery){
+     private int executeQuery(String jdbcConnectionForPrice, String sqlQuery){
         System.out.println("jdbcConnectionForPrice: " +jdbcConnectionForPrice);
         System.out.println("sqlQuery: "+sqlQuery);
         return 5;
     }
-
-    public double getNettoPrice(int orderId, Integer priceGroupId, int tarifCategory, String date) {
-        int month = Integer.parseInt(date.substring(3,5));
-        int year = Integer.parseInt(date.substring(6,10));
-        try {
-            int priceInEuros = lookupPriceInDB(tarifCategory, month, year, priceGroupId);
-            double discount = 13;
-            return priceInEuros*discount;
-        } catch (NumberFormatException e) {
-            logger.log (Level.SEVERE, "Error reading from DB");
-            return 0;
-        }
-    }
-
 }
