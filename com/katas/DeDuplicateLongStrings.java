@@ -26,12 +26,15 @@ public class DeDuplicateLongStrings {
     }
 
     /*
-     * 1) Refactor "Extract Field": selectedFields
-     * 2) Refactor "Extract Field": tableName
-     *
-     * 10) Refactor "Extract Field": whereClause
+     * 2) Refactor "Inline Field": tableName
+     * 3) Intention: "Join declaration and assignment". Cursor on "whereClause" variable
+     * 4) Intention: "Remove empty string operand". Cursor on "" (empty string)
+     * 5) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
+     * 6) Refactor "Inline Field": whereClause
+     * 7) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
+     * 8) Repeat Intention: "Join concatenated string literals".
+     * 9) Refactor "Extract Field" query2
      */
-
     private static String queryBuilder2(int year, int month, int tarifCategoryId, int priceGroupId) {
         String selectedFields = "price";
         String tableName = "price_table";
