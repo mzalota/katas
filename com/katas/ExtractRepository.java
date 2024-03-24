@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 //   2f) In "Analyse and Replace Usages" dialog, click "Yes".
 //   2g) In "Use Interface Where Possible" dialog click "OK" button.
 //   2h) In "Add File to Git" dialog click "Add" button. (afterward when we perform Git Rollback to reset Kata, this file will be automatically deleted)
-//3) In PriceDiscountRepositry class
+//3) In PriceDiscountRepository class
 //   3a) Add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
 //   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
 //4) Navigate to definition of class ExtractRepository. Refactor: "Replace Inheritence with Delegation", click "Refactor" button
