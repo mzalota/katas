@@ -8,11 +8,11 @@ public class DeDuplicateLongStrings {
     /*
      * 1) Intention: "Join declaration and assignment". Cursor on "queryStr" variable
      * 2) Intention: "Remove empty string operand"
-     * 3) Intention: "Remove unnecessary parentheses"
-     * 4) Intention: "Replace '+' with 'String.format()'"
-     *
+     * 3) Repeat until the string is on one line
+     * 4) Intention: "Remove unnecessary parentheses". Cursor on a parentheses
+     * 5) Intention: "Join concatenated string literals". Cursor on '+' just before " "
+     * 6) Intention: "Replace '+' with 'String.format()'"
      */
-
     private static String queryBuilder1(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
         String queryStr = "";
         queryStr += "SELECT price FROM price_table WHERE";
