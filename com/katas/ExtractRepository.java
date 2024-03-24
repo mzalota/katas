@@ -11,17 +11,17 @@ import java.util.logging.Logger;
 //1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option).
 //2) In "Extract Superclass" dialog:
 //   2a) In "Superclass name" enter PriceDiscountRepository
-//   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
-//   2c) In "Members To Form Superclass" grid select jdbcConnection(). Nothing else turned red. Yous see "logger:Logger" is color blue, because it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
+//   2b) In "Members To Form Superclass" grid select "lookupPriceInDB()". You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
+//   2c) In "Members To Form Superclass" grid select "jdbcConnection()". Nothing else turned red. Yous see "logger:Logger" is color blue, because it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
 //   2d) Click "Refactor" button.
 //   2e) In "Problem Detected" click "Continue" button. We ignore message "Field ExtractRepository.logger is private and will not be accessible from method lookupPriceInDB(int, int, int, int).", because the new class will need its own logger field.
 //   2f) In "Analyse and Replace Usages" dialog, click "Yes".
 //   2g) In "Use Interface Where Possible" dialog click "OK" button.
 //   2h) In "Add File to Git" dialog click "Add" button. (afterward when we perform Git Rollback to reset Kata, this file will be automatically deleted)
 //3) In PriceDiscountRepository class
-//   3a) Manually add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
-//   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
-//4) Refactor: "Replace Inheritence with Delegation". (place cursor on ExtractRepository class name to get that refactor menu option).
+//   3a) Manually add field: "private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());"
+//   3b) Replace problematic expression "ExtractRepository.logger.log(...);" with "logger.log(...);"
+//4) Refactor: "Replace Inheritance with Delegation". (place cursor on ExtractRepository class name to get that refactor menu option).
 //   4a) Click "Refactor" button
 
 public class ExtractRepository {
