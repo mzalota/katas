@@ -3,21 +3,23 @@ package com.katas;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+// #####Refactoring flow: "Extract Repository"
+//
+//---Move to new R
+//1) Refactor: "Extract Delegate". (place cursor on class name to get that refactor menu option)
+//2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
+//3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+//--- Pull logic "up-stack" (to the function "above")
+//1) Refactor: "Extract Method": lookupPriceInDB() - content last line of the method.
+//2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
+//3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+
 public class ExtractRepository {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
     private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
-    // #####Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
-    //
-    //---Move to new R
-    //1) Refactor: "Extract Method": lookupPriceInDBNew() - content- last two lines of the method.
-    //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-    //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
-    //--- Pull logic "up-stack" (to the function "above")
-    //1) Refactor: "Extract Method": lookupPriceInDB() - content last line of the method.
-    //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-    //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
 
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
