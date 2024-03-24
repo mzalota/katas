@@ -12,6 +12,7 @@ public class DeDuplicateLongStrings {
      * 4) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
      * 5) Intention: "Join concatenated string literals". Cursor on '+' just before " "
      * 6) Intention: "Replace '+' with 'String.format()'"
+     * 7) Refactor "Extract Field": query1. Cursor in a string
      */
     private static String queryBuilder1(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
         String queryStr = "";
@@ -37,7 +38,13 @@ public class DeDuplicateLongStrings {
      * 7) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
      * 8) Intention: "Join concatenated string literals".
      * 9) Intention: "Replace '+' with 'String.format()'"
-     * 10) Refactor "Extract Field" query2
+     * 10) Refactor "Extract Field":  query2 Cursor in a string
+     * 11) Rearrange query1 and query2 strings
+     *    11a) order of columns in WHERE clause
+     *    11b) remove unneeded single quotes (')
+     *    11c) remove unneeded semicolumn (;)
+     *    11d) remove extra empty spaces
+     * 12) Refactor "Extract Field": In "Process Duplicates" dialog pops up. Press "Replace" button - this proves that two sql strings are identical.
      */
     private static String queryBuilder2(int year, int month, int tarifCategoryId, int priceGroupId) {
         String selectedFields = "price";
