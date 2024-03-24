@@ -41,7 +41,7 @@ public class DeDuplicateLongStrings {
         String whereClause = "";
         whereClause += "validity_month = '"+ year +"-"+ month +"' AND ";
         whereClause += "category_id = '"+ tarifCategoryId +"'  AND ";
-        whereClause += "price_group_id = '"+ priceGroupId +"';";
+        whereClause += "price_group_id = '"+ priceGroupId;
         String sql = "SELECT " + selectedFields + " FROM " + tableName + " WHERE "+whereClause +";";
         return sql;
     }
