@@ -27,12 +27,18 @@ public class DeDuplicate {
 
     /*
     1) Right-click on DeDuplicat.java tab on top and select "Split Right". Align lookupPriceInDB() and readPrices() functions. You can jump between them with "Ctrl+Tab" shortcut
-    2) Try Extract Method on last two lines from lookupPriceInDB() to see if the middle two lines in readPrices would be detected.
+    2) Try "Extract Method" refactoring on last two lines from lookupPriceInDB() to see if the middle two lines in readPrices would be detected as the same.
     3) Undo, because IntelliJ did not detect duplication.
-    4) In lookupPriceInDB apply "Extract Variable" refactoring to the last line (or use Intention: introduce local variable on "return" statement)
-    5) In readPrices() move String jdbcConnectionForPrice varible declaration to the top of the function.
-    6) You see that now only the 2 places with log statements differ. Copy/paste these log statements to make them identical in each function
-    7) Select all statements in the body of one function and
+    4) In lookupPriceInDB() use Intention: introduce local variable on "return" statement (or apply "Extract Variable" refactoring to the last line)
+	5) Now try to "Extract Method" on two lines with queryBuilder() and executeQuery() function calls. Now "Process Duplicates" dialog pops up. Press "Replace" button. Rename this method to "commonLogic01()"
+    6) In readPrices() move "String jdbcConnectionForPrice" variable declaration to the top of the function.
+    6) You now clearly see that log statments differ. It's not business logic. Just copy/paste these log statements between functions to make them identical in each function.
+    7) Select all statements in the body of one of the functions and "Extract Method" refactoring. In "Process Duplicates" dialog press "Replace" button.
+	8) Now rename newly created method to "lookupPriceInDBNew".
+	9) In lookupPriceInDBNew(), put curson on "commonLogic01()" and do "Inline Method..." refactoring. Select "Inline all and remove the method"
+	10) "Inline Method..." readPrices()
+	11) "Inline Method..." lookupPriceInDB()
+	12) "Rename..." refactoring on "lookupPriceInDBNew()" to rename to "lookupPriceInDB()" (without New suffix)
      */
 
     private int lookupPriceInDB(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
