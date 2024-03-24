@@ -34,6 +34,6 @@ Refactorings:
 - Extract Method (Ctrl+Alt+M)
 - Inline (Ctrl+Alt+N)
 
-Three-step refactoring, "temp-name-rename", is a commonly occuring pattern. Examples:
+Three-step refactoring, "extract-inline-rename" with introducing a temporary name, is a commonly occuring pattern. Examples:
 1) Upstack, Donwstack 
 2) De-Duplicate
