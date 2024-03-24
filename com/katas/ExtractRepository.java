@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 
 // ##### Refactoring flow: "Extract Repository"
-// Notice 3 methods that "lookupPriceInDB()", "readDiscount()" and loadPackageDiscount() that call DB.
+// Notice three methods that call DB: "lookupPriceInDB()", "readDiscount()" and loadPackageDiscount(). We will move them to new Repository class one by one.
 //
 // --- Refactor lookupPriceInDB() method into new PriceDiscountRepositry class
 //1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option)
