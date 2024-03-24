@@ -2,9 +2,10 @@ package com.katas;
 
 public class UpAndDownStack {
 
-    // Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
+    // #####Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
+    //
     //---Push logic "down-stack" (to the function below)
-    //1) Refactor: "Extract Method": lookupPriceInDBNew() - content- last two lines of the method. Choose option "Inline this only and keep method". In "Process Duplicates" select Replace
+    //1) Refactor: "Extract Method": lookupPriceInDBNew() - content- last two lines of the method.
     //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
     //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
 
