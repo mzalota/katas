@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 // Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and loadPackageDiscount(). We will move them to a new repository class one by one.
 //
 // --- Refactor lookupPriceInDB() method into the new PriceDiscountRepository class
-//1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option)
+//1) Refactor: "Extract Superclass". (place cursor on class name to get that refactor menu option).
 //2) In "Extract Superclass" dialog:
 //   2a) In "Superclass name" enter PriceDiscountRepository
 //   2b) In "Members To Form Superclass" grid select lookupPriceInDB(). You see now that "jdbcConnection:String" turned color red, because it is "used by lookupPriceInDB()" function (hover mouse to see explanation message) and must also be extracted.
@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 //3) In PriceDiscountRepository class
 //   3a) Manually add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
 //   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
-//4) Refactor: "Replace Inheritence with Delegation". (place cursor on ExtractRepository class name).
+//4) Refactor: "Replace Inheritence with Delegation". (place cursor on ExtractRepository class name to get that refactor menu option).
 //   4a) Click "Refactor" button
 
 public class ExtractRepository {
