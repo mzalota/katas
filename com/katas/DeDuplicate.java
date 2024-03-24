@@ -71,14 +71,13 @@ public class DeDuplicate {
         String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
         logger.log (Level.INFO, "DB connection is: "+jdbcConnectionForPrice);
 
-        String sql = "";
-        sql += "SELECT price FROM price_table WHERE ";
-        sql += "price_group_id = "+priceGroupId;
-        sql += " AND ";
-        sql += "category_id = "+tarifCategoryId;
-        sql += " AND ";
-        sql += "validity_month = '"+year+"-"+month+"'";
-        sql += ",";
+        String selectedFields = "price";
+        String tableName = "price_table";
+        String whereClause = "";
+        whereClause += "price_group_id = '"+priceGroupId+"'  AND ";
+        whereClause += "category_id = '"+tarifCategoryId+"'  AND ";
+        whereClause += "validity_month = '"+year+"-"+month+"';";
+        String sql = "SELECT " + selectedFields + " FROM " + tableName + " WHERE "+whereClause +";";
 
         int responseFromDB = executeQuery(jdbcConnectionForPrice, sql);
 
