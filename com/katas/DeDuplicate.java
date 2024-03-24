@@ -32,7 +32,7 @@ public class DeDuplicate {
     4) In lookupPriceInDB() use Intention: introduce local variable on "return" statement (or apply "Extract Variable" refactoring to the last line)
 	5) Now try to "Extract Method" on two lines with queryBuilder() and executeQuery() function calls. Now "Process Duplicates" dialog pops up. Press "Replace" button. Rename this method to "commonLogic01()"
     6) In readPrices() move "String jdbcConnectionForPrice" variable declaration to the top of the function.
-    6) You now clearly see that log statments differ. It's not business logic. Just copy/paste these log statements between functions to make them identical in each function.
+    6) You now clearly see that log statements differ. It's not business logic. Just copy/paste these log statements between functions to make them identical in each function.
     7) Select all statements in the body of one of the functions and "Extract Method" refactoring. In "Process Duplicates" dialog press "Replace" button.
 	8) Now rename newly created method to "lookupPriceInDBNew".
 	9) In lookupPriceInDBNew(), put curson on "commonLogic01()" and do "Inline Method..." refactoring. Select "Inline all and remove the method"
