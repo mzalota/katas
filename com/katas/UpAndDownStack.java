@@ -12,6 +12,7 @@ public class UpAndDownStack {
     //1) Refactor: "Extract Method": lookupPriceInDB() - content last line of the method.
     //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
     //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+
     public int getBaselinePrice(String priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
         int baselineYear = 2001;

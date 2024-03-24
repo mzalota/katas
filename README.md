@@ -33,3 +33,7 @@ Refactorings:
 - Extract Variable (Ctrl+Alt+V)
 - Extract Method (Ctrl+Alt+M)
 - Inline (Ctrl+Alt+N)
+
+Three-step refactoring, "temp-name-rename", is a commonly occuring pattern. Examples:
+1) Upstack, Donwstack 
+2) De-Duplicate
