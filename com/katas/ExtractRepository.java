@@ -1,8 +1,12 @@
 package com.katas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ExtractRepository {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
+    private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
     // #####Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
     //
@@ -23,6 +27,8 @@ public class ExtractRepository {
     }
 
     private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
+        logger.log (Level.INFO, "Reading Price from DB");
+
         jdbcConnection = jdbcConnection+";param1=value1";
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
@@ -36,12 +42,13 @@ public class ExtractRepository {
             double discount = lookupDiscountInDB(orderId, year);
             return priceInEuros*discount;
         } catch (NumberFormatException e) {
-            System.out.println("Error reading from DB");
+            logger.log (Level.SEVERE, "Error reading from DB");
             return 0;
         }
     }
 
     private double lookupDiscountInDB(int orderId, int year) {
+        logger.log (Level.INFO, "Reading Discount from DB");
         jdbcConnection = jdbcConnection+";param2=value2";
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return Math.random()*orderId/year;
