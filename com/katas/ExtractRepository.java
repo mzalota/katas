@@ -2,9 +2,11 @@ package com.katas;
 
 public class ExtractRepository {
 
+    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
+
     // #####Refactoring flows: "Push logic down-stack" and "Pull logic up-stack"
     //
-    //---Push logic "down-stack" (to the function below)
+    //---Move to new R
     //1) Refactor: "Extract Method": lookupPriceInDBNew() - content- last two lines of the method.
     //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
     //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
@@ -21,6 +23,7 @@ public class ExtractRepository {
     }
 
     private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
+        jdbcConnection = jdbcConnection+";param1=value1";
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
     }
@@ -39,6 +42,7 @@ public class ExtractRepository {
     }
 
     private double lookupDiscountInDB(int orderId, int year) {
+        jdbcConnection = jdbcConnection+";param2=value2";
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return Math.random()*orderId/year;
     }
