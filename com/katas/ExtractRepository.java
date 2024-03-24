@@ -15,8 +15,9 @@ import java.util.logging.Logger;
 //   2c) In "Members To Form Superclass" grid select jdbcConnection(). Nothing else turned red. logger:Logger turned color blue necause it is "used by lookupPriceInDB()" (hover mouse to see explanation message). We will ignore this field, because new class PriceDiscountRepository will need to have its own logger field
 //   2d) Click "Refactor" button.
 //   2e) In "Problem Detected" Click "Continue" button. We ignore message "Field ExtractRepository.logger is private and will not be accessible from method lookupPriceInDB(int, int, int, int).", because the new class will need its own logger field.
-//   2f) In "Analyse and Replace Usages" dialog, click "Yes" -> there will be no additional changes made.
-//   2g) In "Add file to Git" dialog click Add. (afterward when we perform Git Rollback, this file will automatically be deleted)
+//   2f) In "Analyse and Replace Usages" dialog, click "Yes".
+//   2g) In "Use Interface Where Possible" dialog click "OK" button.
+//   2h) In "Add File to Git" dialog click "Add" button. (afterward when we perform Git Rollback to reset Kata, this file will be automatically deleted)
 //3) In PriceDiscountRepositry class
 //   3a) Add field: private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());
 //   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
