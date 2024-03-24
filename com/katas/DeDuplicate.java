@@ -30,7 +30,7 @@ public class DeDuplicate {
         String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
         logger.log (Level.INFO, "Starting to read Price from DB, conn: "+jdbcConnectionForPrice);
 
-        String queryStr = queryBuilder(tarifCategory, validitMonth, validityYear, priceGroupIdInt);
+        String queryStr = queryBuilder(validityYear, validitMonth, tarifCategory, priceGroupIdInt);
         return executeQuery(jdbcConnectionForPrice, queryStr);
     }
 
