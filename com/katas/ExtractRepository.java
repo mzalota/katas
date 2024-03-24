@@ -22,10 +22,22 @@ import java.util.logging.Logger;
 //   3b) Replace problematic expression ExtractRepository.logger.log(...); with logger.log();
 //4) Navigate to definition of class ExtractRepository. Refactor: "Replace Inheritence with Delegation", click "Refactor" button
 
-public class ExtractRepository extends PriceDiscountRepository {
+public class ExtractRepository {
 
+    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/userdata?" ;
     private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
 
+
+    private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
+
+        String jdbcConnectionForPrice = jdbcConnection+";param1=value1";
+        logger.log (Level.INFO, "Starting to read Price from DB, conn: "+jdbcConnectionForPrice);
+
+        //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
+        int responseFromDB = priceGroupIdInt * tarifCategory + baselineYear / baselineMonth;
+
+        return responseFromDB;
+    }
 
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
         int baselineMonth = 01;
