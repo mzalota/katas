@@ -7,9 +7,9 @@ public class DeDuplicateLongStrings {
 
     /*
      * 1) Intention: "Join declaration and assignment". Cursor on "queryStr" variable
-     * 2) Intention: "Remove empty string operand"
-     * 3) Repeat until the string is on one line
-     * 4) Intention: "Remove unnecessary parentheses". Cursor on a parentheses
+     * 2) Repeat previous step until the string is on one line
+     * 3) Intention: "Remove empty string operand". Cursor on "" (empty string)
+     * 4) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
      * 5) Intention: "Join concatenated string literals". Cursor on '+' just before " "
      * 6) Intention: "Replace '+' with 'String.format()'"
      */
@@ -26,14 +26,18 @@ public class DeDuplicateLongStrings {
     }
 
     /*
+     * 1) Refactor "Inline Field": selectedFields
      * 2) Refactor "Inline Field": tableName
      * 3) Intention: "Join declaration and assignment". Cursor on "whereClause" variable
      * 4) Intention: "Remove empty string operand". Cursor on "" (empty string)
      * 5) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
+     * 8) Intention: "Join concatenated string literals".
+     * 9) Repeat previous step until the string of "whereClause" is on one line
      * 6) Refactor "Inline Field": whereClause
      * 7) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
-     * 8) Repeat Intention: "Join concatenated string literals".
-     * 9) Refactor "Extract Field" query2
+     * 8) Intention: "Join concatenated string literals".
+     * 9) Intention: "Replace '+' with 'String.format()'"
+     * 10) Refactor "Extract Field" query2
      */
     private static String queryBuilder2(int year, int month, int tarifCategoryId, int priceGroupId) {
         String selectedFields = "price";
