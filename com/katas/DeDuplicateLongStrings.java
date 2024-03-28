@@ -12,7 +12,7 @@ public class DeDuplicateLongStrings {
      * 4) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
      * 5) Intention: "Join concatenated string literals". Cursor on '+' just before " "
      * 6) Intention: "Replace '+' with 'String.format()'"
-     * 7) Refactor "Extract Field": query1. Cursor in a string
+     * 7) Refactor "Extract Field": query1. Cursor in a string. In "Initialize in" select "field declaration"
      */
     private static String queryBuilder1(int tarifCategory, int validitMonth, int validityYear, int priceGroupIdInt) {
         String queryStr = "";
@@ -38,7 +38,7 @@ public class DeDuplicateLongStrings {
      * 7) Intention: "Remove unnecessary parentheses". Cursor on a parentheses.
      * 8) Intention: "Join concatenated string literals".
      * 9) Intention: "Replace '+' with 'String.format()'"
-     * 10) Refactor "Extract Field":  query2 Cursor in a string
+     * 10) Refactor "Extract Field":  query2 Cursor in a string. In "Initialize in" select "field declaration"
      * 11) Rearrange query1 and query2 strings
      *    11a) order of columns in WHERE clause
      *    11b) remove unneeded single quotes (')
