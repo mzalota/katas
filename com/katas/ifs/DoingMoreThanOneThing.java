@@ -2,34 +2,6 @@ package com.katas.ifs;
 
 public class DoingMoreThanOneThing {
 
-
-
-    public void doingTwoThings(boolean isHungry, boolean foodIsReady) {
-        int barNumber = 0;
-        double fooFactor = 1;
-        if (isHungry) {
-            System.out.println("In if top: she is hungry");
-            barNumber = barMethod("ACTION - eat the food AA");
-            fooFactor = fooMethod("ACTION - cook something tasty AA");
-            if (foodIsReady) {
-                fooFactor = fooMethod("ACTION - cook something tasty BB ");
-            } else {
-                barNumber = barMethod("ACTION - eat the food BBB");
-            }
-
-        } else {
-            if (foodIsReady) {
-                barNumber = barMethod("ACTION - eat the food CCC");
-            } else {
-                fooFactor = fooMethod("ACTION - cook something tasty CCC");
-            }
-            System.out.println("In else: she is NOT hungry");
-        }
-
-        double result = fooFactor * barNumber;
-        System.out.println("Saving result to DB: "+result);
-    }
-
     public void doingTwoThingsSmaller(boolean isHungry, int defaultValue) {
 
         //culculate the Number and the Factor
@@ -46,10 +18,12 @@ public class DoingMoreThanOneThing {
 
         //Save to DB if necessary
         if (fooFactor==0){
-            System.out.println("Saving default value to DB: "+defaultValue);
+            saveToDB(String.valueOf(defaultValue));
+            System.out.println("Saved default value to DB");
         } else {
             double result = fooFactor * barNumber;
-            System.out.println("Saving calculated result to DB: " + result);
+            System.out.println("Saving calculated result to DB");
+            saveToDB(String.valueOf(result));
         }
     }
     protected double fooMethodAAA(String message) {
@@ -67,5 +41,8 @@ public class DoingMoreThanOneThing {
     protected int barMethodAAA(String message) {
         System.out.println(message);
         return 7;
+    }
+    protected void saveToDB(String valueToStore) {
+        System.out.println("Committing to DB value: " + valueToStore);
     }
 }
