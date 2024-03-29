@@ -30,7 +30,9 @@ public class DoingMoreThanOneThing {
         System.out.println("Saving result to DB: "+result);
     }
 
-    public void doingTwoThingsSmaller(boolean isHungry, boolean foodIsReady) {
+    public void doingTwoThingsSmaller(boolean isHungry, int defaultValue) {
+
+        //culculate the Number and the Factor
         int barNumber = 0;
         double fooFactor = 1;
         if (isHungry) {
@@ -42,8 +44,13 @@ public class DoingMoreThanOneThing {
             fooFactor = fooMethod("ACTION - cook something tasty CCC");
         }
 
-        double result = fooFactor * barNumber;
-        System.out.println("Saving result to DB: "+result);
+        //Save to DB if necessary
+        if (fooFactor==0){
+            System.out.println("Saving default value to DB: "+defaultValue);
+        } else {
+            double result = fooFactor * barNumber;
+            System.out.println("Saving calculated result to DB: " + result);
+        }
     }
     protected double fooMethodAAA(String message) {
         return 5.4;
