@@ -1,4 +1,4 @@
-package com.katas;
+package com.katas.ifs;
 
 public class NestedIfToPreconditions {
 
