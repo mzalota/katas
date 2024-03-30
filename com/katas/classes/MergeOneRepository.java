@@ -9,7 +9,7 @@ public class MergeOneRepository {
     private static Logger logger = Logger.getLogger(MergeOneRepository.class.getName());
 
 
-    public double loadFromDB(int orderId, String year) {
+    public double loadFromDB(Integer orderId, String year) {
         logger.log (Level.INFO, "Starting to read Discount from DB, conn: "+jdbcConnectionForDiscount);
 
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
