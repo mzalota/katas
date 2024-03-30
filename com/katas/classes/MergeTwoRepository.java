@@ -10,8 +10,8 @@ public class MergeTwoRepository {
 
 
     public double loadPackagePrice(Integer packageId) {
-        String jdbcConnectionForPackage = "postgresql://username:password@db.internal.com:5555/PriceDB?;param3=value3";
-        logger.log (Level.INFO, "Starting to read PackagePrice from DB, conn: "+jdbcConnectionForPackage);
+
+        logger.log (Level.INFO, "Starting to read PackagePrice from DB, conn: "+jdbcConnection);
 
         if (packageId == null) {
             packageId=1; //use default package

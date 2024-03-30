@@ -5,12 +5,11 @@ import java.util.logging.Logger;
 
 public class MergeOneRepository {
 
-    private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
+    private String jdbcConnectionForDiscount = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
     private static Logger logger = Logger.getLogger(MergeOneRepository.class.getName());
 
 
     public double loadDiscountFromDB(int orderId, int year) {
-        String jdbcConnectionForDiscount = jdbcConnection+";param2=value2";
         logger.log (Level.INFO, "Starting to read Discount from DB, conn: "+jdbcConnectionForDiscount);
 
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
