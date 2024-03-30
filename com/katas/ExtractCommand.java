@@ -29,21 +29,29 @@ public class ExtractCommand {
     //4) Refactoring: "Inline Method": PriceGroupId.getPriceGroupId()
     //-- push PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int (Use "Push logic down-stack" Refactoring Flowout)
 
-
-    public double controllerGetPrice(int tarifCategory, int pricegroupid) {
+    /*
+    1)  Refactor: Introduce Parameter Object
+    1a) In "Create new class Name" box enter "PriceGroupId"
+    1b) In "Parameters to Extract" grid slect " int priceGroupId"
+     *    1e) In "Add File to Git" dialog click "Add" button.
+     */
+    public double controllerGetPrice(String tarifCategory, String priceGroupId) {
+        int tarifCategoryInt = Integer.parseInt(tarifCategory);
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         String today = formatter.format(new Date());
-        return calculateNettoPrice(tarifCategory,today,pricegroupid);
+        int priceGroupIdInt = Integer.parseInt(priceGroupId);
+
+        return calculateNettoPrice(tarifCategoryInt,today,priceGroupIdInt);
     }
 
 
 
-    protected double calculateNettoPrice(int tarifCategory, String date, int priceGroupIdInt) {
+    protected double calculateNettoPrice(int tarifCategory, String date, int priceGroupId) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
         try {
-            int price = lookupPriceInDB(month, year, tarifCategory, priceGroupIdInt);
-            double discount = lookupDiscountInDB(year, priceGroupIdInt, tarifCategory);
+            int price = lookupPriceInDB(month, year, tarifCategory, priceGroupId);
+            double discount = lookupDiscountInDB(year, priceGroupId, tarifCategory);
             return price*discount;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
