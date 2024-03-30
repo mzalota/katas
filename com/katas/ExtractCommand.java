@@ -30,10 +30,31 @@ public class ExtractCommand {
     //-- push PriceGroupId object as parameter to lookupPriceInDB() method, instead of Int (Use "Push logic down-stack" Refactoring Flowout)
 
     /*
-    1)  Refactor: Introduce Parameter Object
+     * ##Replace primitive with "Identifier Type".
+     * ##https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3
+
+    1)  Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method:
     1a) In "Create new class Name" box enter "PriceGroupId"
-    1b) In "Parameters to Extract" grid slect " int priceGroupId"
+    1b) In "Parameters to Extract" grid select "int priceGroupId" only
      *    1e) In "Add File to Git" dialog click "Add" button.
+
+    2) Refactor: Introduce Parameter Object. Cursor on "lookupDiscountInDB()" method. In "Introduce Parameter Object" dialog:
+    2a) Select "Use exiting class" radio button
+    2b) In "Name" box enter "com.katas.PriceGroupId"
+    2c) In "Parameters to Extract" grid select "int priceGroupId" only
+    2d) Click "Refactor" button
+
+    2) Refactor: Introduce Parameter. Place cursor in "calculateNetPrice()" method on "new PriceGroupId(priceGroupId)"
+    3) Refactor: Introduce Variable. Place cursor in "controllerGetPrice()" method on "new PriceGroupId(priceGroupId)"
+    4) Refactor: Inline Variable. Place current in "controllerGetPrice()" method on "priceGroupIdInt" variabel
+    5) Refactor: Extract Method. Select in "controllerGetPrice()" method snippet "new PriceGroupId(Integer.parseInt(priceGroupId))"
+    6) Refactor: Move Members. Place cursor on "getPriceGroupId1()" method definition
+    6a) In "Move Static Members" dialog, in "To (fully qualified name)" enter "com.katas.PriceGroupId"
+    6b) In "Members to be moved (static only) grid, select "getPriceGroupId1()" method.
+    6c) Click "Refactor" button
+    7) Intention: Replace constructor with factory method. Place cursor on "PriceGroupId(int)" constructor.
+    7a) In "Replace Constructor With Factory Method" click "Refactor" button.
+    8) In PriceGroupId rename factory methods to be "createFromString()" and "createFromInt()"
      */
     public double controllerGetPrice(String tarifCategory, String priceGroupId) {
         int tarifCategoryInt = Integer.parseInt(tarifCategory);
