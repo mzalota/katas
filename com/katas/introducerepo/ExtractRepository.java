@@ -1,4 +1,4 @@
-package com.katas.classes;
+package com.katas.introducerepo;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
