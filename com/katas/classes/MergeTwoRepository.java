@@ -9,7 +9,7 @@ public class MergeTwoRepository {
     private static Logger logger = Logger.getLogger(MergeTwoRepository.class.getName());
 
 
-    public double loadPackagePrice(Integer packageId) {
+    public double loadFromDB(Integer packageId, String category) {
 
         logger.log (Level.INFO, "Starting to read PackagePrice from DB, conn: "+jdbcConnection);
 

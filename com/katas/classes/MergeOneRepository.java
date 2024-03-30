@@ -9,11 +9,11 @@ public class MergeOneRepository {
     private static Logger logger = Logger.getLogger(MergeOneRepository.class.getName());
 
 
-    public double loadDiscountFromDB(int orderId, int year) {
+    public double loadFromDB(int orderId, String year) {
         logger.log (Level.INFO, "Starting to read Discount from DB, conn: "+jdbcConnectionForDiscount);
 
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
-        double responseFromDB = Math.random() * orderId / year;
+        double responseFromDB = Math.random() * orderId / Integer.parseInt(year);
 
         return responseFromDB;
     }
