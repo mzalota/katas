@@ -1,4 +1,4 @@
-package com.katas;
+package com.katas.functions;
 
 // #####Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"
 public class UpAndDownStack {

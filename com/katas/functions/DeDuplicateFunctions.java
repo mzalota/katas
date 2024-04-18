@@ -1,4 +1,4 @@
-package com.katas;
+package com.katas.functions;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ public class DeDuplicateFunctions {
     }
     /*
 
-    1) Right-click on DeDuplicat.java tab on top and select "Split Right". Align lookupPriceInDB() and readPrices() functions. You can jump between them with "Ctrl+Tab" shortcut
+    1) Right-click on DeDuplicateFunctions.java tab on top and select "Split Right". Align lookupPriceInDB() and readPrices() functions. You can jump between them with "Ctrl+Tab" shortcut
     2) Try "Extract Method" refactoring on last two lines from lookupPriceInDB() to see if the middle two lines in readPrices would be detected as identical.
     3) Undo, because IntelliJ did not detect duplication.
     4) In lookupPriceInDB() use Intention: "Introduce local variable" on "return" statement (or apply "Extract Variable" refactoring to the last line)

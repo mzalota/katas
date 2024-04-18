@@ -1,6 +1,4 @@
-package com.katas;
-
-import com.katas.NestedIfToPreconditions;
+package com.katas.ifs;
 
 public class SimplifyingIfs extends NestedIfToPreconditions {
 
