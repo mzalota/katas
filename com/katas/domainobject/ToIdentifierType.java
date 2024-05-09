@@ -9,7 +9,7 @@ public class ToIdentifierType {
      *    1b) In "Parameters to Extract" grid select only "int priceGroupID" parameter.
      * 	  1c) Click "Refactor" button.
      *    1d) In "Add File to Git" dialog click "Add" button.
-     *  2) Refactor: Introduce Parameter Object. Cursor on "lookupDiscountInDB()" method. In "Introduce Parameter Object" dialog:
+     * 2) Refactor: Introduce Parameter Object. Cursor on "lookupDiscountInDB()" method. In "Introduce Parameter Object" dialog:
      *    2a) Select "Use exiting class" radio button.
      *    2b) In "Name" box enter "com.katas.PriceGroupId".
      *    2c) In "Parameters to Extract" grid select only "int priceGroupId" parameter.
@@ -29,10 +29,10 @@ public class ToIdentifierType {
         return calculateNettoPrice(tarifCategory, priceGroupId);
     }
 
-    protected double calculateNettoPrice(int tarifCategory, int priceGroupId) {
+    protected double calculateNettoPrice(int tarifCategoryInt, int priceGroupIdInt) {
         try {
-            int price = lookupPriceInDB(tarifCategory, priceGroupId);
-            double discount = lookupDiscountInDB(priceGroupId, tarifCategory);
+            int price = lookupPriceInDB(tarifCategoryInt, priceGroupIdInt);
+            double discount = lookupDiscountInDB(priceGroupIdInt, tarifCategoryInt);
             return price*discount;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
