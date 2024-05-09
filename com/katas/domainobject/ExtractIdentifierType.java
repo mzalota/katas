@@ -1,6 +1,6 @@
 package com.katas.domainobject;
 
-public class ToIdentifierType {
+public class ExtractIdentifierType {
     /*
     /* ## Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
      *
@@ -17,16 +17,15 @@ public class ToIdentifierType {
      * 3) Refactor: Introduce Parameter. Place cursor in "calculateNettoPrice()" method on "new PriceGroupId(priceGroupId)". Replace all 2 occurrences.
      * 4) Refactor: Introduce Variable. Place cursor in "controllerGetPrice()" method on "new PriceGroupId(priceGroupId)".
      * 5) Refactor: Inline Variable. Place current in "controllerGetPrice()" method on "priceGroupId" variable.
-     * 6) Refactor: Rename. Variables "priceGroupId1" to "priceGroupId" without numeral 1 at the end.
-     * 7) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
+     * 6) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
      *
      *
      * Repeat this refactoring flow to create TarifCategoryId class from "int tarifCategory" primitive.
      *
      * Bonus: Create a new domain object PriceSpecification, which is a combination of TarifCategoryId and PriceGroupId
      */
-    public double controllerGetPrice(int tarifCategory, int priceGroupId) {
-        return calculateNettoPrice(tarifCategory, priceGroupId);
+    public double controllerGetPrice(int tarifCategoryInt, int priceGroupIdInt) {
+        return calculateNettoPrice(tarifCategoryInt, priceGroupIdInt);
     }
 
     protected double calculateNettoPrice(int tarifCategoryInt, int priceGroupIdInt) {
