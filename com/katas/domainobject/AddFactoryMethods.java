@@ -6,8 +6,7 @@ import java.util.Date;
 
 public class AddFactoryMethods {
 
-    /*
-     * ## Add Factory Methods.
+    /* ## Add Factory Methods.
      *
      * 1) Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
      *    1a) In "Create new class Name" box enter "MonthYear".
@@ -38,19 +37,16 @@ public class AddFactoryMethods {
      * - createFromString(String)
      * - createFromIntegers(int, int)
      * - createFromToday()
-     *
      */
     public double controllerGetPrice(int priceGroupId) {
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         String today = formatter.format(new Date());
-
         return calculateNettoPrice(today, priceGroupId);
     }
 
     protected double calculateNettoPrice(String date, int priceGroupId) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
-
         try {
             int price = lookupPriceInDB(month, year, priceGroupId);
             return price;
