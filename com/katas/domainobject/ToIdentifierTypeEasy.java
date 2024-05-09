@@ -19,33 +19,20 @@ public class ToIdentifierTypeEasy {
      *    2b) In "Name" box enter "com.katas.PriceGroupId".
      *    2c) In "Parameters to Extract" grid select "int priceGroupId" only.
      *    2d) Click "Refactor" button.
-     * 3) Refactor: Introduce Parameter. Place cursor in "calculateNetPrice()" method on "new PriceGroupId(priceGroupId)". Replace all 2 occurrences.
+     * 3) Refactor: Introduce Parameter. Place cursor in "calculateNettoPrice()" method on "new PriceGroupId(priceGroupId)". Replace all 2 occurrences.
      * 4) Refactor: Introduce Variable. Place cursor in "controllerGetPrice()" method on "new PriceGroupId(priceGroupId)".
-     * 5) Refactor: Inline Variable. Place current in "controllerGetPrice()" method on "priceGroupIdInt" variable.
-     * 6) Refactor: Extract Method. Select in "controllerGetPrice()" method  "new PriceGroupId(Integer.parseInt(priceGroupId))" snippet.
-     * 7) Refactor: Move Members. Place cursor on "getPriceGroupId1()" method definition. In "Move Static Members" dialog:
-     *    7a) In "To (fully qualified name)" box enter "com.katas.PriceGroupId".
-     *    7b) In "Members to be moved (static only") grid, select "getPriceGroupId1()" method.
-     *    7c) Click "Refactor" button
-     * 8) Intention: Replace constructor with factory method. Place cursor on "PriceGroupId(int)" constructor. In "Replace Constructor With Factory Method" dialog:
-     *    8a) In "Factory method name" box enter "createFromInt".
-     * 	  8b) Click "Refactor" button.
-     * 9) Refactor: Rename. Static factory method "getPriceGroupId1(String)" to be "createFromString()".
-     * 10) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
-     * 11) Refactor: Rename. Variables "priceGroupId1" to "priceGroupId" without numeral 1 at the end.
+     * 5) Refactor: Inline Variable. Place current in "controllerGetPrice()" method on "priceGroupId" variable.
+     * 6) Refactor: Rename. Variables "priceGroupId1" to "priceGroupId" without numeral 1 at the end.
+     * 7) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
      *
      *
      * Repeat the "Replace primitive with Identifier Type" refactoring flow to replace "int tarifCategory" primitive everywhere with  TarifCategory class (DDD Identifier Type pattern).
      *
-     * Repeat the steps above to create "BusinessYear" for the year
-     *
-     * Create a new Domain object PriceSpecification, which is a combindation of BusinessYear, TarifCategory and PriceGroupId
+     * Create a new Domain object PriceSpecification, which is a combindation of TarifCategory and PriceGroupId
      */
-    public double controllerGetPrice(String tarifCategory, String priceGroupId) {
-        int tarifCategoryInt = Integer.parseInt(tarifCategory);
-        int priceGroupIdInt = Integer.parseInt(priceGroupId);
+    public double controllerGetPrice(int tarifCategory, int priceGroupId) {
 
-        return calculateNettoPrice(tarifCategoryInt, priceGroupIdInt);
+        return calculateNettoPrice(tarifCategory, priceGroupId);
     }
 
     protected double calculateNettoPrice(int tarifCategory, int priceGroupId) {
