@@ -37,7 +37,7 @@ public class AddFactoryMethods {
      * - createFromIntegers(int, int)
      * - createFromToday()
      */
-    public double controllerGetPrice(int priceGroupId) {
+    public double controller(int priceGroupId) {
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         String today = formatter.format(new Date());
         return calculateNettoPrice(today, priceGroupId);
