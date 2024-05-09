@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ToIdentifierTypeSimple {
+public class ToIdentifierTypeEasy {
 
     /*
      * ##Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
@@ -42,22 +42,13 @@ public class ToIdentifierTypeSimple {
      * Create a new Domain object PriceSpecification, which is a combindation of BusinessYear, TarifCategory and PriceGroupId
      */
     public double controllerGetPrice(String tarifCategory, String priceGroupId) {
-        int tarifCategoryInt = Integer.parseInt(tarifCategory);
-        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        String today = formatter.format(new Date());
-        int priceGroupIdInt = Integer.parseInt(priceGroupId);
-
-        PriceGroupId priceGroupId1 = new PriceGroupId(priceGroupIdInt);
-        TarifCategoryId tarifCategoryId = new TarifCategoryId(tarifCategoryInt);
-        return calculateNettoPrice(today, priceGroupId1, tarifCategoryId);
+        return calculateNettoPrice(Integer.parseInt(tarifCategory), Integer.parseInt(priceGroupId));
     }
 
-    protected double calculateNettoPrice(String date, PriceGroupId priceGroupId, TarifCategoryId tarifCategoryId) {
-        int month = Integer.parseInt(date.substring(3,5));
-        int year = Integer.parseInt(date.substring(6,10));
+    protected double calculateNettoPrice(int tarifCategory, int priceGroupId) {
         try {
-            int price = lookupPriceInDB(month, year, tarifCategoryId, priceGroupId);
-            double discount = lookupDiscountInDB(year, priceGroupId, tarifCategoryId);
+            int price = lookupPriceInDB(tarifCategory, priceGroupId);
+            double discount = lookupDiscountInDB(priceGroupId, tarifCategory);
             return price*discount;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
@@ -65,11 +56,11 @@ public class ToIdentifierTypeSimple {
         }
     }
 
-    private static int lookupPriceInDB(int month, int year, TarifCategoryId tarifCategoryId, PriceGroupId priceGroupId) {
-        return priceGroupId.getPriceGroupID() * tarifCategoryId.getTarifCategory() + year / month;
+    private static int lookupPriceInDB(int tarifCategory, int priceGroupID) {
+        return priceGroupID + tarifCategory;
     }
 
-    private static double lookupDiscountInDB(int year, PriceGroupId priceGroupId, TarifCategoryId tarifCategoryId) {
-        return priceGroupId.getPriceGroupID() * tarifCategoryId.getTarifCategory() + year;
+    private static double lookupDiscountInDB(int priceGroupId, int tarifCategory) {
+        return priceGroupId * tarifCategory;
     }
 }

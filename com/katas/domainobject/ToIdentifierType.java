@@ -47,17 +47,15 @@ public class ToIdentifierType {
         String today = formatter.format(new Date());
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
 
-        PriceGroupId priceGroupId1 = new PriceGroupId(priceGroupIdInt);
-        TarifCategoryId tarifCategoryId = new TarifCategoryId(tarifCategoryInt);
-        return calculateNettoPrice(today, priceGroupId1, tarifCategoryId);
+        return calculateNettoPrice(tarifCategoryInt,today,priceGroupIdInt);
     }
 
-    protected double calculateNettoPrice(String date, PriceGroupId priceGroupId, TarifCategoryId tarifCategoryId) {
+    protected double calculateNettoPrice(int tarifCategory, String date, int priceGroupId) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
         try {
-            int price = lookupPriceInDB(month, year, tarifCategoryId, priceGroupId);
-            double discount = lookupDiscountInDB(year, priceGroupId, tarifCategoryId);
+            int price = lookupPriceInDB(month, year, tarifCategory, priceGroupId);
+            double discount = lookupDiscountInDB(year, priceGroupId, tarifCategory);
             return price*discount;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
@@ -65,11 +63,11 @@ public class ToIdentifierType {
         }
     }
 
-    private static int lookupPriceInDB(int month, int year, TarifCategoryId tarifCategoryId, PriceGroupId priceGroupId) {
-        return priceGroupId.getPriceGroupID() * tarifCategoryId.getTarifCategory() + year / month;
+    private static int lookupPriceInDB(int month, int year, int tarifCategory, int priceGroupID) {
+        return priceGroupID * tarifCategory + year / month;
     }
 
-    private static double lookupDiscountInDB(int year, PriceGroupId priceGroupId, TarifCategoryId tarifCategoryId) {
-        return priceGroupId.getPriceGroupID() * tarifCategoryId.getTarifCategory() + year;
+    private static double lookupDiscountInDB(int year, int priceGroupId, int tarifCategory) {
+        return priceGroupId * tarifCategory + year;
     }
 }
