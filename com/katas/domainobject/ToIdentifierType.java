@@ -1,13 +1,8 @@
 package com.katas.domainobject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-public class ToIdentifierTypeEasy {
-
+public class ToIdentifierType {
     /*
-     * ##Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
+    /* ## Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
      *
      * 1) Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
      *    1a) In "Create new class Name" box enter "PriceGroupId".
@@ -26,12 +21,11 @@ public class ToIdentifierTypeEasy {
      * 7) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
      *
      *
-     * Repeat the "Replace primitive with Identifier Type" refactoring flow to replace "int tarifCategory" primitive everywhere with  TarifCategory class (DDD Identifier Type pattern).
+     * Repeat this refactoring flow to create TarifCategoryId class from "int tarifCategory" primitive.
      *
-     * Create a new Domain object PriceSpecification, which is a combindation of TarifCategory and PriceGroupId
+     * Bonus: Create a new domain object PriceSpecification, which is a combination of TarifCategoryId and PriceGroupId
      */
     public double controllerGetPrice(int tarifCategory, int priceGroupId) {
-
         return calculateNettoPrice(tarifCategory, priceGroupId);
     }
 
