@@ -42,7 +42,10 @@ public class ToIdentifierTypeEasy {
      * Create a new Domain object PriceSpecification, which is a combindation of BusinessYear, TarifCategory and PriceGroupId
      */
     public double controllerGetPrice(String tarifCategory, String priceGroupId) {
-        return calculateNettoPrice(Integer.parseInt(tarifCategory), Integer.parseInt(priceGroupId));
+        int tarifCategoryInt = Integer.parseInt(tarifCategory);
+        int priceGroupIdInt = Integer.parseInt(priceGroupId);
+
+        return calculateNettoPrice(tarifCategoryInt, priceGroupIdInt);
     }
 
     protected double calculateNettoPrice(int tarifCategory, int priceGroupId) {
