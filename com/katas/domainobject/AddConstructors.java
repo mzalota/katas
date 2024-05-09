@@ -41,33 +41,27 @@ public class AddConstructors {
      *
      * Create a new Domain object PriceSpecification, which is a combindation of BusinessYear, TarifCategory and PriceGroupId
      */
-    public double controllerGetPrice(String tarifCategory, String priceGroupId) {
-        int tarifCategoryInt = Integer.parseInt(tarifCategory);
+    public double controllerGetPrice(int priceGroupId) {
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         String today = formatter.format(new Date());
-        int priceGroupIdInt = Integer.parseInt(priceGroupId);
 
-        return calculateNettoPrice(tarifCategoryInt,today,priceGroupIdInt);
+        return calculateNettoPrice(today, priceGroupId);
     }
 
-    protected double calculateNettoPrice(int tarifCategory, String date, int priceGroupId) {
+    protected double calculateNettoPrice(String date, int priceGroupId) {
         int month = Integer.parseInt(date.substring(3,5));
         int year = Integer.parseInt(date.substring(6,10));
+
         try {
-            int price = lookupPriceInDB(month, year, tarifCategory, priceGroupId);
-            double discount = lookupDiscountInDB(year, priceGroupId, tarifCategory);
-            return price*discount;
+            int price = lookupPriceInDB(month, year, priceGroupId);
+            return price;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
             return 0;
         }
     }
 
-    private static int lookupPriceInDB(int month, int year, int tarifCategory, int priceGroupID) {
-        return priceGroupID * tarifCategory + year / month;
-    }
-
-    private static double lookupDiscountInDB(int year, int priceGroupId, int tarifCategory) {
-        return priceGroupId * tarifCategory + year;
+    private static int lookupPriceInDB(int month, int year, int priceGroupID) {
+        return priceGroupID + year / month;
     }
 }
