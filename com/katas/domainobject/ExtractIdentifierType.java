@@ -11,7 +11,7 @@ public class ExtractIdentifierType {
      *    1d) In "Add File to Git" dialog click "Add" button.
      * 2) Refactor: Introduce Parameter Object. Cursor on "lookupDiscountInDB()" method. In "Introduce Parameter Object" dialog:
      *    2a) Select "Use exiting class" radio button.
-     *    2b) In "Name" box enter "com.katas.PriceGroupId".
+     *    2b) In "Name" box enter "com.katas.domainobject.PriceGroupId".
      *    2c) In "Parameters to Extract" grid select only "int priceGroupId" parameter.
      *    2d) Click "Refactor" button.
      * 3) Refactor: Introduce Parameter. Place cursor in "calculateNettoPrice()" method on "new PriceGroupId(priceGroupId)". Replace all 2 occurrences.
