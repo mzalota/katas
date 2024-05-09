@@ -9,7 +9,7 @@ public class ToIdentifierTypeEasy {
     /*
      * ##Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
      *
-     * 1)  Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
+     * 1) Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
      *    1a) In "Create new class Name" box enter "PriceGroupId".
      *    1b) In "Parameters to Extract" grid select "int priceGroupID" only.
      * 	  1c) Click "Refactor" button.
