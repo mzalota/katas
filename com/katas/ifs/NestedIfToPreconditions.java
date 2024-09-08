@@ -109,6 +109,53 @@ public class NestedIfToPreconditions {
         }
     }
 
+    // 1) Place cursor on the first if statement
+    // 2) Intention: "Invert if condition"
+    // 3) Intention: "Remove unnecessary 'return'"
+    // 4) Place cursor on the else word
+    // 5) Intention: Merge 'else if'
+    // 6) Place cursor on the else word
+    // 7) Intention: "Swap if statements"
+    public void simplifyExample(boolean firstArgument, boolean secondArgument) {
+        if (secondArgument) {
+            if (firstArgument) {
+                barMethod("ACTION - eat the food");
+            }
+            return;
+        }
+        barMethod("ACTION - drink water");
+    }
+
+
+    // 1) Place cursor in an "if" word
+    // 2) Intention: "merge sequential if statements"
+    // 3) Intention: invert if condition
+    public void mergeIdenticalBodiesOfIfStatements(boolean firstArgument, boolean secondArgument) {
+        if (firstArgument) {
+            barMethod("Identical Strings");
+        } else if (secondArgument) {
+            barMethod("Identical Strings");
+        }
+    }
+
+    // 1) Place cursor on the first if statement
+    // 2) Intention: "Invert if condition"
+    // 3) Place cursor in the "else" word
+    // 4) Intention: Merge 'else if'
+    // 5) Place cursor in an "if" word
+    // 6) Intention: "merge sequential if statements"
+    // 7) Intention: invert if condition
+    public void mergeIdenticalBodiesOfIfStatements2(boolean firstArgument, boolean secondArgument) {
+        if (firstArgument) {
+            if (!secondArgument) {
+                barMethod("ACTION - eat the food");
+            }
+        } else {
+            barMethod("ACTION - eat the food");
+        }
+    }
+
+
     protected void fooMethod(String message) {
         System.out.println(message);
     }
