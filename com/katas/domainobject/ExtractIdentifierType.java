@@ -24,26 +24,26 @@ public class ExtractIdentifierType {
      *
      * Bonus: Create a new domain object PriceSpecification, which is a combination of TarifCategoryId and PriceGroupId
      */
-    public double controllerGetPrice(int tarifCategoryInt, int priceGroupIdInt) {
-        return calculateNettoPrice(tarifCategoryInt, priceGroupIdInt);
+    public double controllerGetPrice(final int tarifCategoryInt, final int priceGroupIdInt) {
+        return this.calculateNettoPrice(tarifCategoryInt, priceGroupIdInt);
     }
 
-    protected double calculateNettoPrice(int tarifCategoryInt, int priceGroupIdInt) {
+    protected double calculateNettoPrice(final int tarifCategoryInt, final int priceGroupIdInt) {
         try {
-            int price = lookupPriceInDB(tarifCategoryInt, priceGroupIdInt);
-            double discount = lookupDiscountInDB(priceGroupIdInt, tarifCategoryInt);
+            final int price = lookupPriceInDB(tarifCategoryInt, priceGroupIdInt);
+            final double discount = lookupDiscountInDB(priceGroupIdInt, tarifCategoryInt);
             return price*discount;
-        } catch (NumberFormatException e) {
+        } catch (final NumberFormatException e) {
             System.out.println("Error reading from DB");
             return 0;
         }
     }
 
-    private static int lookupPriceInDB(int tarifCategory, int priceGroupID) {
+    private static int lookupPriceInDB(final int tarifCategory, final int priceGroupID) {
         return priceGroupID + tarifCategory;
     }
 
-    private static double lookupDiscountInDB(int priceGroupId, int tarifCategory) {
+    private static double lookupDiscountInDB(final int priceGroupId, final int tarifCategory) {
         return priceGroupId * tarifCategory;
     }
 }
