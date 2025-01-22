@@ -18,7 +18,8 @@ public class ExtractIdentifierType {
      * 4) Refactor: Introduce Variable. Place cursor in "controllerGetPrice()" method on "new PriceGroupId(priceGroupId)".
      * 5) Refactor: Inline Variable. Place current in "controllerGetPrice()" method on "priceGroupId" variable.
      * 6) Refactor: Rename. Method "getPriceGroupID()" in class "PriceGroupId" to be "asInt()".
-     *
+     * 7) Generate @equals() and @hashCode() for PriceGroupId class so that two separate instances of PriceGroupId that hold the same integer value would be equal. Set cursor on PriceGroupId class definition and use shortcut "alt+insert".
+     +
      *
      * Repeat this refactoring flow to create TarifCategoryId class from "int tarifCategory" primitive.
      *
