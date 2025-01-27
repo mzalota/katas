@@ -37,3 +37,7 @@ Refactorings:
 Three-step refactoring, "extract-inline-rename" with introducing a temporary name, is a commonly occuring pattern. Examples:
 1) Upstack, Donwstack 
 2) De-Duplicate
+
+References to additional Refactorings:
+- Split Variable: https://www.youtube.com/watch?v=wPmJz2ynb3k
+- Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M
