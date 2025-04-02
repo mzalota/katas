@@ -1,12 +1,9 @@
-package com.katas.combine;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+package com.katas.constructor;
 
 
 
 /*
- * Combine MergeOneRepository and MergeTwoRepository classes into CommonRepository class, without breaking any existing references.
+ * Move date parameter to from every method to constructor.
  *
  * 1) Refactor: Extract Superclass. Place cursor on "loadFromDB()" method in "MergeOneReposory" class:
  *    1a) In "Superclass name" box enter "CommonRepository".
@@ -36,33 +33,21 @@ import java.util.logging.Logger;
  */
 
 public class ParamToConstructor {
+    
+    private String date;
 
-
-    public double getDiscount( String date, int orderId) {
-        String year = date.substring(6,10);
-        return 15.7;
+    public double getDiscount( String date, int orderSize) {
+        this.date = date;
+        String year = this.date.substring(6,10);
+        return 15.7 * orderSize;
     }
 
 
-    public double getPromotion( String date, int orderId) {
-        String year = date.substring(6,10);
-        return 12.1;
-    }
-
-}
-
-class Consumer {
-
-
-    public void doLogic1( String date, int orderId) {
-        ParamToConstructor paramToConstructor = new ParamToConstructor();
-        paramToConstructor.getDiscount("2022-02-02", 19);
-    }
-
-
-    public void doLogic2( String date, int orderId) {
-        ParamToConstructor paramToConstructor = new ParamToConstructor();
-        paramToConstructor.getPromotion("2011-11-11", 19);
+    public double getPromotion( String date, int orderSize) {
+        this.date = date;
+        String year = this.date.substring(6,10);
+        return 12.1 * orderSize;
     }
 
 }
+
