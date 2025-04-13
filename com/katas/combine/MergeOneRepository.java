@@ -8,7 +8,6 @@ public class MergeOneRepository {
     private String jdbcConnectionForDiscount = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
     private static Logger logger = Logger.getLogger(MergeOneRepository.class.getName());
 
-
     public double loadFromDB(Integer orderId, String year) {
         logger.log (Level.INFO, "Starting to read Discount from DB, conn: "+jdbcConnectionForDiscount);
 
@@ -17,5 +16,4 @@ public class MergeOneRepository {
 
         return responseFromDB;
     }
-
 }
