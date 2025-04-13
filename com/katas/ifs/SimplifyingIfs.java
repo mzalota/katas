@@ -21,7 +21,7 @@ public class SimplifyingIfs extends NestedIfToPreconditions {
 
     //1) Select two lines with barMethod("xxx"); and fooMethod("yyy");. Extract Method (Ctrl+Alt+M). Both sections should be replaced by new method "extracted"
     //2) Intention: "Extract common part from 'if'" -> "extracted()" method moved to below if-else block
-    //3) Refactoring: Inline extracted() method (Ctrl+Alt+M)
+    //3) Refactor: Inline extracted() method (Ctrl+Alt+M)
     public void ifExtractCommonPartMultipleStatements (boolean argumentOne) {
         if (argumentOne) {
             System.out.println("If ACTION");

@@ -1,17 +1,22 @@
 package com.katas.functions;
 
-// #####Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"
+
 public class UpAndDownStack {
 
-    //---Push logic "down-stack" (to the function below)
-    //1) Refactor: "Extract Method": lookupPriceInDBNew() - content- last two lines of the method.
-    //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-    //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
-
-    //--- Pull logic "up-stack" (to the function "above")
-    //1) Refactor: "Extract Method": lookupPriceInDB() - content last line of the method.
-    //2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-    //3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+/*
+* Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"
+*
+* ---Push logic "down-stack" (to the function "below")
+* 1) Refactor: "Extract Method": lookupPriceInDBNew() - select last two lines in the method getBaselinePrice().
+* 2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
+* 3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+*
+* --- Pull logic "up-stack" (to the function "above")
+* 1) Refactor: "Extract Method": lookupPriceInDBNew() - content last line in the method lookupPriceInDB().
+* 2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
+* 3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
+*
+*/
 
     public int getBaselinePrice(String priceGroupId, int tarifCategory) {
         int baselineMonth = 01;

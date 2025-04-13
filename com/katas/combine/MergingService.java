@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 /*
  * Combine MergeOneRepository and MergeTwoRepository classes into CommonRepository class, without breaking any existing references.
  *
- * * -- Deal with the MergeOneRepository class
+ * -- Deal with the MergeOneRepository class
  * 1) Refactor: Extract Superclass. Place cursor on "loadFromDB()" method in "MergeOneReposory" class:
  *    1a) In "Superclass name" box enter "CommonRepository".
  *    1b) In "Members to Form Superclass" grid select all 3 members and then click "Refactor" button.
