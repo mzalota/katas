@@ -1,14 +1,21 @@
 # Refactoring Katas
+## Reorganizing code within a function
 1) DeDuplicateLongStrings
-2) Ifs: 
+2) Ifs: (See linkt to a video tutorial below)
    2a) SimplyfingIfs
    2b) NetstedIfsToPreconditions
    2c) DoingMoreThanOneThing
+2+) Split Loop and Split Variable (see links below)
+
+## Reorganizing code between neighbouring functions.
 3) UpAndDownStack
-4) De-Duplicate
-5) ExtractIdentifierType
-6) ExtractRepository
-7) MergeRepositories
+4) AddFactoryMethods
+5) De-Duplicate
+
+## Reorganizing code between classes
+6) ExtractIdentifierType
+7) ExtractRepository
+8) MergeRepositories
 
 
 ## Intentions used in Katas
@@ -32,11 +39,12 @@
 7) Transform body to single exit-point form
 
 
-Other Intentions:
+### Other Intentions:
 - Reuse previous variable 'message' declaration
 - Split into declaration and assignment
 - Expand boolean to multiple ifs
 - Remove unnecessary 'return'
+- Replace constructor with factory method
 
 
 ## References to additional refactoring tutorials
