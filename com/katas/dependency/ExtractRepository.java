@@ -22,14 +22,17 @@ Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and
  2) In PriceDiscountRepository class fix compilation problem due to "logger" field:
     2a) Manually add field: "private static Logger logger = Logger.getLogger(PriceDiscountRepository.class.getName());"
     2b) Replace problematic expression "ExtractRepository.logger.log(...);" with "logger.log(...);".
- 3) Refactor: "Replace Inheritance with Delegation". (place cursor on ExtractRepository class name to get that refactor menu option).
+ 3) Refactor: "Replace Inheritance with Delegation". Place cursor on ExtractRepository class name to get that refactor menu option.
+    3a) Do not click any Members in the "Delegate Members" box.
  4) Cleanup PriceDiscountRepository class:
     4a) Intention: "Change access modifier: public". For lookupPriceInDB() method in PriceDiscountRepository class
     4b) Intention: "Change access modifier: private". For jdbcConnection field in PriceDiscountRepository class
-    4c) In "Problem Detected" dialog with message "field jdbcConnection with private visibility won't be accessible from method   ExtractRepository.readDiscount(int, int)" click  "Show Conflicts in View" and then jump to readDiscount() method
+        - In "Problem Detected" dialog with message "field jdbcConnection with private visibility won't be accessible from method ExtractRepository.readDiscount(int, int)"
+        - click  "Show Conflicts in View" and then
+        - jump to readDiscount() method
 
 --- Move readDiscount() method into existing PriceDiscountRepository class
- 5) Refactor: "Move Instance Method". (place cursor on readDiscount() method in ExtractRepository class).
+ 5) Refactor: "Move Instance Method". Place cursor on readDiscount() method in ExtractRepository class.
     5a) Click "Refactor" button.
     5b) In "Problems Detected" dialog click "Continue" button. We ignore this message, because the "logger" field will need to be replaced with PriceDiscountRepository's own.
  6) In readDiscount() method in PriceDiscountRepository class:
@@ -55,7 +58,6 @@ Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and
     10f) Refactor: Rename "jdbcConnectionTemp" to "jdbcConnection"
 
 */
-
 
 public class ExtractRepository {
 
