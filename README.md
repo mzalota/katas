@@ -13,7 +13,8 @@
 5) De-Duplicate
 
 ## Reorganizing code between classes
-6) ExtractIdentifierType
+6a) IdentifierTypeFromField
+6b) IdentifierTypeFromParam
 7) ExtractRepository
 8) MergeRepositories
 
