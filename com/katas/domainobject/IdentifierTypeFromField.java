@@ -19,7 +19,7 @@ public class IdentifierTypeFromField {
      * 5) Refactor: Extract Field. Place the cursor on newly created customerId1 parameter in setCustomerId() method.
      * 6) In getCustomerId() method manually replace "return customerId;" with "return customerId1.getCustomerId();"
      * 7) In setCustomerId() method manually delete line "this.customerId = this.customerId1.getCustomerId();"
-     * 8) Intention: "remove field customerId". Place the cursor on the definition of the customerId field.
+     * 8) Intention: "Remove field customerId". Place the cursor on the definition of the customerId field.
      *
      * --- Clean up
      * 9) Refactor: Rename. customerId1 -> customerId.
