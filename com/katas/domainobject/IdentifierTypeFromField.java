@@ -5,7 +5,7 @@ public class IdentifierTypeFromField {
     /* ## Refactoring flow: Replace primitive-typed field with "Identifier Type".
      * (Ref: https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
      *
-     * 1) Refactor: Encapsulate Fields. Cursor on the declation of "customerId" field. In "Encapsulate Fields" dialog:
+     * 1) Refactor: Encapsulate Fields. Cursor on the declaration of "customerId" field. In "Encapsulate Fields" dialog:
      *    1a) Select only "customerId" field. Don't select "name" field
      *    1b) Select all boxes in Encapsulate section: "Get access", "Set access", "Use accessors even when field is accessible"
      * 	  1c) Click "Refactor" button.
