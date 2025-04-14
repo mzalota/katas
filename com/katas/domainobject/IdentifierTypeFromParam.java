@@ -1,8 +1,10 @@
 package com.katas.domainobject;
 
-public class ExtractIdentifierType {
+public class IdentifierTypeFromParam {
 
-    /* ## Replace primitive with "Identifier Type". (https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
+    /*
+     * ## Refactoring flow: Replace primitive-typed parameter with "Identifier Type".
+     * (Ref: https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
      *
      * 1) Refactor: Introduce Parameter Object. Cursor on the "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
      *    1a) In "Create new class Name" box enter "PriceGroupId".
