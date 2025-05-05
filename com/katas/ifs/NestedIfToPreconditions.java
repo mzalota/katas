@@ -60,9 +60,11 @@ public class NestedIfToPreconditions {
     // 2) Manually add explicit "return;" at the end of the function
     // 3) Intention: "Move up into if statement branches"
     // 4) Intention: "Remove redundant else"
-    // 3) Intention: "Move up into if statement branches" (return; into if-else)
-    // 4) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    // 5) Intention: "Move up into if statement branches" (return; into if-else)
+    // 6) Intention: "Remove unnecessary 'return'"
+    //
+    // To repeat from start
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifWithElseIf(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in if");
@@ -80,7 +82,9 @@ public class NestedIfToPreconditions {
     // 4) Intention: "Invert if condition"
     // 5) Intention: "Remove redundant else"
     // 6) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    //
+    // Repeat from start:
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifNotAtFunctionEnd(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in inner if");
