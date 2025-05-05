@@ -2,7 +2,7 @@ package com.katas.ifs;
 
 public class NestedIfToPreconditions {
 
-    // 1) Intention: "Invert if condition"
+    // 1) Intention: "Invert if condition". Cursor on the if keyword
     // Repeat from start -> Intention: "Transform body to single exit-point form"
     public void ifStatmentAtFunctionEnd(boolean firstArgument) {
         if (firstArgument) {
@@ -11,9 +11,9 @@ public class NestedIfToPreconditions {
     }
 
 
-    // 1) Intention: "Invert if condition"
-    // 2) Intention: "Invert if condition"
-    // 3) Intention: "Invert if condition"
+    // 1) Intention: "Invert if condition". Cursor on the first if keyword
+    // 2) Intention: "Invert if condition". Cursor on the second if keyword
+    // 3) Intention: "Invert if condition". Cursor on the third if keyword
     // Repeat from start -> Intention: "Transform body to single exit-point form"
     public void ifNested(boolean firstArgument, boolean secondArgument, boolean thirdArgument) {
         if (firstArgument) {
