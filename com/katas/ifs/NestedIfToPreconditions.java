@@ -10,11 +10,12 @@ public class NestedIfToPreconditions {
         }
     }
 
-
     // 1) Intention: "Invert if condition". Cursor on the first if keyword
     // 2) Intention: "Invert if condition". Cursor on the second if keyword
     // 3) Intention: "Invert if condition". Cursor on the third if keyword
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    //
+    // To repeat from the start:
+    // Intention: "Transform body to single exit-point form". Cursor on the function name
     public void ifNested(boolean firstArgument, boolean secondArgument, boolean thirdArgument) {
         if (firstArgument) {
             if (!secondArgument) {
@@ -31,21 +32,22 @@ public class NestedIfToPreconditions {
     // 4) Intention: "Invert if condition"
     // 5) Intention: "Invert if condition" (on third if)
     //
-    // To repeat from start:
-    // A) Intention: "Transform body to single exit-point form"
-    // B) Intention: "Merge nested 'ifs'
+    // To repeat from the start:
+    // A) Intention: "Transform body to single exit-point form". Cursor on the function name
+    // B) Intention: "Merge nested 'ifs'. Cursor on the first if keyword
     public void ifMultipleConditions(boolean firstArgument, Boolean secondArgument) {
-        if (!firstArgument && (secondArgument != null) && !secondArgument) {
+        if (!firstArgument && secondArgument != null && !secondArgument) {
             System.out.println("in if");
         }
     }
-
 
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
     // 3) Intention: "Remove redundant else"
     // 4) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+
+    // To repeat from start:
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifWithElse(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in if");
