@@ -11,12 +11,17 @@ public class NestedIfToPreconditions {
     }
 
 
-    // 1) Intention: "Extract if"
+    // 1) Intention: "Invert if condition"
     // 2) Intention: "Invert if condition"
+    // 3) Intention: "Invert if condition"
     // Repeat from start -> Intention: "Transform body to single exit-point form"
     public void ifNested(boolean firstArgument, boolean secondArgument, boolean thirdArgument) {
-        if (firstArgument && !secondArgument && thirdArgument) {
-            System.out.println("in if");
+        if (firstArgument) {
+            if (!secondArgument) {
+                if (thirdArgument) {
+                    System.out.println("in if");
+                }
+            }
         }
     }
 
