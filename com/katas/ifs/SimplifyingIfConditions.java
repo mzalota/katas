@@ -1,6 +1,6 @@
 package com.katas.ifs;
 
-public class NestedIfToPreconditions {
+public class SimplifyingIfConditions {
 
     // 1) Intention: "Invert if condition". Cursor on the if keyword
     // Repeat from start -> Intention: "Transform body to single exit-point form"
@@ -164,6 +164,14 @@ public class NestedIfToPreconditions {
         }
     }
 
+
+    // 1) Refactor: Extract method. Select everything inside if condition. Method name "inputsAreValid()"
+    // 2) Refactor: "Invert Boolean". Cursor on inputsAreValid() method definition.
+    public void invertBooleanRefactoring(boolean firstArgument, Boolean secondArgument) {
+        if (secondArgument != null && !secondArgument && firstArgument) {
+            System.out.println("do some logic");
+        }
+    }
 
     protected void fooMethod(String message) {
         System.out.println(message);

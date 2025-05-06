@@ -2,10 +2,10 @@
 ## Reorganizing code within a function
 1) DeDuplicateLongStrings
 2) Ifs: (See linkt to a video tutorial below)
-   2a) SimplyfingIfs
-   2b) NetstedIfsToPreconditions
-   2c) DoingMoreThanOneThing
-2+) Split Loop and Split Variable (see links below)
+   - SimplifyingIfBody
+   - SimplifyingIfConditions
+   - DoingMoreThanOneThing
+3) Split Loop and Split Variable (see links below)
 
 ## Reorganizing code between neighbouring functions.
 3) UpAndDownStack
@@ -13,8 +13,9 @@
 5) De-Duplicate
 
 ## Reorganizing code between classes
-6a) IdentifierTypeFromField
-6b) IdentifierTypeFromParam
+6) IdentifierType
+   - IdentifierTypeFromField
+   - IdentifierTypeFromParam
 7) ExtractRepository
 8) MergeRepositories
 
@@ -66,6 +67,7 @@
 - Move Instance Method: https://www.jetbrains.com/help/idea/move-refactorings.html#instance_method_example
 - Extract Superclass: https://www.jetbrains.com/help/idea/extract-superclass.html
 - Pull Members Up: https://www.jetbrains.com/help/idea/pull-members-up.html
+- Invert Boolean: https://www.jetbrains.com/help/idea/invert-boolean-refactoring.html
 
 ### By Dmitry Kandalov - IDEAs
 - Gilded Rose Refactoring Kata https://www.youtube.com/watch?v=AxxNHKCldzA

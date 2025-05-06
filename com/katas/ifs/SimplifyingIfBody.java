@@ -1,6 +1,6 @@
 package com.katas.ifs;
 
-public class SimplifyingIfs extends NestedIfToPreconditions {
+public class SimplifyingIfBody extends SimplifyingIfConditions {
 
 
     //1) Intention: "Extract common part from 'if'"
