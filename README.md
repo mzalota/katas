@@ -4,7 +4,7 @@
 2) Ifs: (See linkt to a video tutorial below)
    - SimplifyingIfBody
    - SimplifyingIfConditions
-   - DoingMoreThanOneThing
+   - SplitIfs
 3) Split Loop and Split Variable (see links below)
 
 ## Reorganizing code between neighbouring functions.

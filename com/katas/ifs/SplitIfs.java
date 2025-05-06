@@ -1,17 +1,17 @@
 package com.katas.ifs;
 
-public class DoingMoreThanOneThing {
+public class SplitIfs {
 
 
     /*
      * We want to refactor and extract first if/else into two functions: calulcateIngredientsCosts() and cookingTimeHours()
      *
      * 1) Duplicate first if/else block.
-     * 2) Move "double cookingTimeHours = 1;" declaration close to the second copy of if block. Variables "cookingTimeHours" in the top "if" block turn "red".
-     * 3) In the top "if" block remove lines with the "cookingTimeHours" variables.
-     * 4) Move first copy of "if" and  "int ingredientsCost = 0;" declaration below second copy of "if". Variables "ingredientsCost" in the top "if" copy turn "red".
-     * 5) In the top "if" block remove lines with the "ingredientsCost" variables.
-     * 6) Refactor: Extract Method: first if block into "cookingTimeHours()" function.
+     * 2) In the top "if" block remove lines with the "cookingTimeHours" variables.
+     * 3) In the second "if" block remove lines with the "ingredientsCost" variables.
+     * 4) Intention: Move declaration of 'cookingTimeHours' closer to usages. Cursor on cookingTimeHours definition
+     * 5) Refactor: Extract Method: first if block into "calulcateIngredientsCosts()" function.
+     * 6) Refactor: Extract Method: second if block into "cookingTimeHours()" function.
      *
      */
     public double doingTwoThingsSmaller(boolean isHungry, int defaultValue) {
