@@ -53,7 +53,7 @@
 
 ### By Emily Bache (https://www.youtube.com/@EmilyBache-tech-coach):
 - Split Variable: https://www.youtube.com/watch?v=wPmJz2ynb3k
-- Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M
+- Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M (https://github.com/emilybache/Theatrical-Players-Refactoring-Kata)
 - Conditionals/Ifs (Guard clause): https://www.youtube.com/watch?v=fLaXlBVUb0c
 
 ### By JetBrains (https://www.jetbrains.com/help/idea/refactoring-source-code.html):
