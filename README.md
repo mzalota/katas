@@ -1,3 +1,5 @@
+
+
 # Refactoring Katas
 ## Reorganizing code within a function
 1) DeDuplicateLongStrings
@@ -20,34 +22,37 @@
 8) MergeRepositories
 
 
-## Intentions used in Katas
-1a) Extract if (condition)
-1b) Merge nested 'ifs'
+# Intentions used in Katas
+1) Extract if (condition)
+2) Invert if condition
+3) Merge nested 'ifs'
+4) Replace && with ||
+5) Move up into if statement branches
+6) Extract common part from 'if'
+7) Extract common part from 'if' (may change semantics)
+8) Split 'else if'
+9) Merge 'else if'
+10) Remove redundant else
+11) Swap if statements (on else if)
+12) Transform body to single exit-point form
+13) Reuse previous variable 'message' declaration
+14) Split into declaration and assignment
+15) Join declaration and assignment
+16) Expand boolean to multiple ifs
+17) Replace constructor with factory method
+18) Reuse previous variable 'message' declaration
+19) Change access modifier: public
+20) Join concatenated string literals
+21) Remove unnecessary 'return'
+22) Convert record to class
+23) Remove unnecessary parentheses
+24) Remove empty string operand
+25) Replace constructor with factory method
+26) Replace '+' with 'String.format()'
 
-2a) Invert if condition
-2b) Replace && with ||
 
-3a) Move up into if statement branches
-3b) Extract common part from 'if'
-3bb) Extract common part from 'if' (may change semantics)
-
-4a) Split 'else if'
-4b) Merge 'else if'
-
-5) Remove redundant else
-
-6) Swap if statements (on else if)
-
-7) Transform body to single exit-point form
-
-
-### Other Intentions:
-- Reuse previous variable 'message' declaration
-- Split into declaration and assignment
-- Expand boolean to multiple ifs
-- Remove unnecessary 'return'
-- Replace constructor with factory method
-
+- Replace Stream API chain with  loop
+- Collapse loop with Stream API
 
 ## References to additional refactoring tutorials
 
