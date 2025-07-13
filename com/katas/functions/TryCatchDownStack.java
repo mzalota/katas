@@ -34,19 +34,25 @@ public class TryCatchDownStack {
             System.out.println("Releasing Resources. By the way, dateParam value was: "+ dateParam);
         }
 
+
         float multiplier = 0.95F;
         return priceFromDB*multiplier;
     }
 
     private static int fetchDefaultPriceFromDB(String priceGroupId, String date) throws OracleDBException {
-        System.out.println(date + priceGroupId);
+        accessDB();
         return 15;
     }
 
     private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws OracleDBException {
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
+        accessDB();
         return priceGroupIdInt * tarifCategory;
+    }
+
+    private static void accessDB() throws OracleDBException {
+        System.out.println("calling DB");
     }
 
     public static class MyTechnicalException extends Throwable {
