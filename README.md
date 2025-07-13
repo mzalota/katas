@@ -11,15 +11,16 @@
 
 ## Reorganizing code between neighbouring functions.
 3) UpAndDownStack
-4) AddFactoryMethods
-5) De-Duplicate
+4) TryCatchDownStack
+5) AddFactoryMethods
+6) DeDuplicateFunctions
 
 ## Reorganizing code between classes
-6) IdentifierType
+7) IdentifierType
    - IdentifierTypeFromField
    - IdentifierTypeFromParam
-7) ExtractRepository
-8) MergeRepositories
+8) ExtractRepository
+9) MergeRepositories
 
 
 # Intentions used in Katas
@@ -49,9 +50,11 @@
 24) Remove empty string operand
 25) Replace constructor with factory method
 26) Replace '+' with 'String.format()'
+27) Move 'return' closer to computation of the value of ''
+28) Delete catch for 'xyzException'
 
 
-- Replace Stream API chain with  loop
+- Replace Stream API chain with loop
 - Collapse loop with Stream API
 
 ## References to additional refactoring tutorials
