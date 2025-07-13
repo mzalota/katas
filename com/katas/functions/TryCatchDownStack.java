@@ -18,19 +18,17 @@ public class TryCatchDownStack {
 *
 */
 
-    public int getBaselinePrice(String priceGroupId, int tarifCategory) {
+    public int getBaselinePrice(String priceGroupId, int tarifCategory) throws NumberFormatException {
         int baselineMonth = 01;
         int baselineYear = 2001;
 
-        return lookupPriceInDB(priceGroupId, tarifCategory, baselineMonth, baselineYear);
+        return lookupPriceInDB(priceGroupId, tarifCategory);
     }
 
 
-    public int getPrice(String priceGroupId, int tarifCategory, String date) {
-        int month = Integer.parseInt(date.substring(3,5));
-        int year = Integer.parseInt(date.substring(6,10));
+    public int getPrice(String priceGroupId, int tarifCategory, String date) throws CustomValidationException {
         try {
-            int priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory, month, year);
+            int priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
             if (priceFromDB <= 0) {
                 System.out.println("No price in DB found. Apply default price");
                 return determineDefaultPrice(priceGroupId, date);
@@ -38,9 +36,9 @@ public class TryCatchDownStack {
             return priceFromDB;
         } catch (NumberFormatException e) {
             System.out.println("Error reading from DB");
-            return 0;
+            throw new CustomValidationException("Could not parse one of the parameters. original exception:  "+e.getMessage());
         } finally {
-            System.out.println("Date value was: "+date);
+            System.out.println("Date value was: "+ date);
         }
     }
 
@@ -49,10 +47,15 @@ public class TryCatchDownStack {
         return 15;
     }
 
-    private static int lookupPriceInDB(String priceGroupId, int tarifCategory, int month, int year) {
+    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws NumberFormatException {
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
-        return priceGroupIdInt * tarifCategory + year / month;
+        return priceGroupIdInt * tarifCategory;
     }
 
+    public static class CustomValidationException extends Throwable {
+        public CustomValidationException(String message) {
+            super(message);
+        }
+    }
 }
