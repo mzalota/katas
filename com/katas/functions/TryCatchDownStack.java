@@ -19,19 +19,19 @@ public class TryCatchDownStack {
 *
 */
 
-    public int getPrice(String priceGroupId, int tarifCategory, String date) throws MyTechnicalException {
+    public int getPrice(String priceGroupId, int tarifCategory, String dateParam) throws MyTechnicalException {
         try {
             int priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
             if (priceFromDB <= 0) {
                 System.out.println("No price in DB found. Apply default price");
-                return fetchDefaultPriceFromDB(priceGroupId, date);
+                return fetchDefaultPriceFromDB(priceGroupId, dateParam);
             }
             return priceFromDB;
         } catch (final OracleDBException e) {
             System.out.println("Error reading from DB");
             throw new MyTechnicalException("Database Error occured. original exception:  "+e.getMessage());
         } finally {
-            System.out.println("Date value was: "+ date);
+            System.out.println("Releasing Resources. By the way, dateParam value was: "+ dateParam);
         }
     }
 
