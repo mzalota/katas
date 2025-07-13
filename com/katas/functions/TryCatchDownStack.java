@@ -1,6 +1,9 @@
 package com.katas.functions;
 
 
+import com.katas.helpers.DBAccess;
+import com.katas.helpers.MyCustomTechnicalException;
+
 public class TryCatchDownStack {
 
 /*
@@ -19,7 +22,7 @@ public class TryCatchDownStack {
 *
 */
 
-    public float getPrice(String priceGroupId, int tarifCategory, String dateParam) throws MyTechnicalException {
+    public float getPrice(String priceGroupId, int tarifCategory, String dateParam) throws MyCustomTechnicalException {
         int priceFromDB;
         try {
             priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
@@ -27,9 +30,9 @@ public class TryCatchDownStack {
                 System.out.println("No price in DB found. Apply default price");
                 return lookupDefaultPriceInDB(priceGroupId, dateParam);
             }
-        } catch (final OracleDBException e) {
+        } catch (final DBAccess.OracleDBException e) {
             System.out.println("Error reading from DB");
-            throw new MyTechnicalException("Database Error occured. original exception:  "+e.getMessage());
+            throw new MyCustomTechnicalException("Database Error occured. original exception:  "+e.getMessage());
         }
 
         return applyDiscount(priceFromDB);
@@ -40,28 +43,16 @@ public class TryCatchDownStack {
         return priceFromDB * multiplier;
     }
 
-    private static int lookupDefaultPriceInDB(String priceGroupId, String date) throws OracleDBException {
-        accessDB();
+    private static int lookupDefaultPriceInDB(String priceGroupId, String date) throws DBAccess.OracleDBException {
+        DBAccess.readFromDB();
+        //hardcoded for kata. Otherwise we would take what DB returned.
         return 15;
     }
 
-    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws OracleDBException {
+    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws DBAccess.OracleDBException {
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
+        DBAccess.readFromDB();
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
-        accessDB();
         return priceGroupIdInt * tarifCategory;
-    }
-
-    private static void accessDB() throws OracleDBException {
-        System.out.println("calling DB");
-    }
-
-    public static class MyTechnicalException extends Throwable {
-        public MyTechnicalException(String message) {
-            super(message);
-        }
-    }
-
-    public static class OracleDBException extends Exception {
     }
 }
