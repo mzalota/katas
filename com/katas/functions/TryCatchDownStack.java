@@ -38,21 +38,21 @@ public class TryCatchDownStack {
         return applyDiscount(priceFromDB);
     }
 
-    private static float applyDiscount(int priceFromDB) {
-        float multiplier = 0.95F;
-        return priceFromDB * multiplier;
-    }
-
-    private static int lookupDefaultPriceInDB(String priceGroupId, String date) throws DBAccess.OracleDBException {
+    private int lookupDefaultPriceInDB(String priceGroupId, String date) throws DBAccess.OracleDBException {
         DBAccess.readFromDB();
         //hardcoded for kata. Otherwise we would take what DB returned.
         return 15;
     }
 
-    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws DBAccess.OracleDBException {
+    private int lookupPriceInDB(String priceGroupId, int tarifCategory) throws DBAccess.OracleDBException {
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
         DBAccess.readFromDB();
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return priceGroupIdInt * tarifCategory;
+    }
+
+    private float applyDiscount(int priceFromDB) {
+        float multiplier = 0.95F;
+        return priceFromDB * multiplier;
     }
 }
