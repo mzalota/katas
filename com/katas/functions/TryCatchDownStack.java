@@ -5,26 +5,25 @@ import com.katas.helpers.DBAccess;
 import com.katas.helpers.MyCustomTechnicalException;
 
 /*
- *
  * Refactoring flow: "Push try/catch block down-stack"
  *
  * ---Push try/catch clause "down-stack" into lookupPriceInDB() method.
- * 1) In getPrice() method select complete try/catch clause and duplicate it below the original.
- * 2) Inside the try block of the duplicate remove all lines except the line containing call to the lookupPriceInDB() method.
+ * 1) Duplicate method getPrice() and call it getPrice_tmp().
+ * 2) In getPrice_tmp() inside the try block remove all lines except the line containing call to the lookupPriceInDB() method. ("priceFromDB = this.lookupPriceInDB(priceGroupId, tarifCategory);")
  * 3) Refactor: "Extract Method": lookupPriceInDB_new() - content of the second try/catch block.
- * 4) Remove the line that has the call to lookupPriceInDB_new() - we never needed it. We temporarily introduced the duplicate try/catch in order to construct this new method.
- * 5) Manually (without 'Rename' refactoring) rename method lookupPriceInDB() definition to have the suffix '_old'. Inside lookupPriceInDB_new() edit manually to call lookupPriceInDB_old().
- * 6) Manually (without 'Rename' refactoring) rename method lookupPriceInDB_new() to lookupPriceInDB(). Now all up-stack methods are calling the new method with the moved try/catch.
+ * 4) Delete getPrice_tmp() method.
+ * 5) Manually rename (not using 'Rename' refactoring) method lookupPriceInDB() definition to have the suffix '_old'. Inside lookupPriceInDB_new() edit manually to call lookupPriceInDB_old().
+ * 6) Manually rename (not using 'Rename' refactoring) method lookupPriceInDB_new() to lookupPriceInDB(). Now all up-stack methods are calling the new method with the moved try/catch.
  * 7) Refactor: "Inline Method...": lookupPriceInDB_old(). Select first option: "Inline all and remove the method".
  * 8) Intention: "Move 'return' closer to computation of the value of 'priceFromDB'". Place cursor on return statement in lookupPriceInDB() method.
  *
  * ---Push try/catch clause "down-stack" into lookupDefaultPriceInDB() method.
- * 1) In getPrice() method select complete try/catch clause and duplicate it below the original.
- * 2) Inside the try block of the duplicate remove all lines except the line containing call to the lookupDefaultPriceInDB() method.
+ * 1) Duplicate method getPrice() and call it getPrice_tmp().
+ * 2) In getPrice_tmp() inside the try block remove all lines except the line containing call to the lookupDefaultPriceInDB() method. ("return this.lookupDefaultPriceInDB(priceGroupId, dateParam);")
  * 3) Refactor: "Extract Method": lookupDefaultPriceInDB_new() - content of the second try/catch block.
- * 4) Remove the line that has the call to lookupDefaultPriceInDB_new() - we never needed it. We temporarily introduced the duplicate try/catch in order to construct this new method.
- * 5) Manually (without 'Rename' refactoring) rename method lookupDefaultPriceInDB() definition to have the suffix '_old'. Inside lookupDefaultPriceInDB_new() edit manually to call lookupDefaultPriceInDB_old()
- * 6) Manually (without 'Rename' refactoring) rename method lookupDefaultPriceInDB_new() to lookupDefaultPriceInDB(). Now all up-stack methods are calling the new method with the moved try/catch.
+ * 4) Delete getPrice_tmp() method.
+ * 5) Manually rename (not using 'Rename' refactoring) method lookupDefaultPriceInDB() definition to have the suffix '_old'. Inside lookupDefaultPriceInDB_new() edit manually to call lookupDefaultPriceInDB_old()
+ * 6) Manually rename (not using 'Rename' refactoring) method lookupDefaultPriceInDB_new() to lookupDefaultPriceInDB(). Now all up-stack methods are calling the new method with the moved try/catch.
  * 7) Intention: "Delete catch for 'com.katas.helpers.DBAcces.OracleDBException'". Place cursor on catch statement in getPrice() method.
  * 8) Refactor: "Inline Method...": lookupDefaultPriceInDB_old(). Select first option: "Inline all and remove the method".
  *
