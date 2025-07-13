@@ -22,37 +22,37 @@ public class TryCatchDownStack {
 *
 */
 
-    public float getPrice(String priceGroupId, int tarifCategory, String dateParam) throws MyCustomTechnicalException {
-        int priceFromDB;
+    public float getPrice(final String priceGroupId, final int tarifCategory, final String dateParam) throws MyCustomTechnicalException {
+        final int priceFromDB;
         try {
-            priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
+            priceFromDB = this.lookupPriceInDB(priceGroupId, tarifCategory);
             if (priceFromDB <= 0) {
                 System.out.println("No price in DB found. Apply default price");
-                return lookupDefaultPriceInDB(priceGroupId, dateParam);
+                return this.lookupDefaultPriceInDB(priceGroupId, dateParam);
             }
         } catch (final DBAccess.OracleDBException e) {
             System.out.println("Error reading from DB");
-            throw new MyCustomTechnicalException("Database Error occured. Original exception:  "+e.getMessage());
+            throw new MyCustomTechnicalException("Database Error occurred. Original exception:  "+e.getMessage());
         }
 
-        return applyDiscount(priceFromDB);
+        return this.applyDiscount(priceFromDB);
     }
 
-    private int lookupDefaultPriceInDB(String priceGroupId, String date) throws DBAccess.OracleDBException {
-        DBAccess.readFromDB();
-        //hardcoded for kata. Otherwise we would take what DB returned.
-        return 15;
-    }
-
-    private int lookupPriceInDB(String priceGroupId, int tarifCategory) throws DBAccess.OracleDBException {
-        int priceGroupIdInt = Integer.parseInt(priceGroupId);
+    private int lookupPriceInDB(final String priceGroupId, final int tarifCategory) throws DBAccess.OracleDBException {
+        final int priceGroupIdInt = Integer.parseInt(priceGroupId);
         DBAccess.readFromDB();
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return priceGroupIdInt * tarifCategory;
     }
 
-    private float applyDiscount(int priceFromDB) {
-        float multiplier = 0.95F;
+    private int lookupDefaultPriceInDB(final String priceGroupId, final String date) throws DBAccess.OracleDBException {
+        DBAccess.readFromDB();
+        //hardcoded for kata. Otherwise we would take what DB returned.
+        return 15;
+    }
+
+    private float applyDiscount(final int priceFromDB) {
+        final float multiplier = 0.95F;
         return priceFromDB * multiplier;
     }
 }
