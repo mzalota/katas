@@ -25,21 +25,22 @@ public class TryCatchDownStack {
             priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
             if (priceFromDB <= 0) {
                 System.out.println("No price in DB found. Apply default price");
-                return fetchDefaultPriceFromDB(priceGroupId, dateParam);
+                return lookupDefaultPriceInDB(priceGroupId, dateParam);
             }
         } catch (final OracleDBException e) {
             System.out.println("Error reading from DB");
             throw new MyTechnicalException("Database Error occured. original exception:  "+e.getMessage());
-        } finally {
-            System.out.println("Releasing Resources. By the way, dateParam value was: "+ dateParam);
         }
 
-
-        float multiplier = 0.95F;
-        return priceFromDB*multiplier;
+        return applyDiscount(priceFromDB);
     }
 
-    private static int fetchDefaultPriceFromDB(String priceGroupId, String date) throws OracleDBException {
+    private static float applyDiscount(int priceFromDB) {
+        float multiplier = 0.95F;
+        return priceFromDB * multiplier;
+    }
+
+    private static int lookupDefaultPriceInDB(String priceGroupId, String date) throws OracleDBException {
         accessDB();
         return 15;
     }
