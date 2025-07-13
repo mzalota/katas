@@ -4,6 +4,7 @@ package com.katas.functions;
 public class TryCatchDownStack {
 
 /*
+*
 * Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"
 *
 * ---Push logic "down-stack" (to the function "below")
@@ -18,44 +19,39 @@ public class TryCatchDownStack {
 *
 */
 
-    public int getBaselinePrice(String priceGroupId, int tarifCategory) throws NumberFormatException {
-        int baselineMonth = 01;
-        int baselineYear = 2001;
-
-        return lookupPriceInDB(priceGroupId, tarifCategory);
-    }
-
-
-    public int getPrice(String priceGroupId, int tarifCategory, String date) throws CustomValidationException {
+    public int getPrice(String priceGroupId, int tarifCategory, String date) throws MyTechnicalException {
         try {
             int priceFromDB = lookupPriceInDB(priceGroupId, tarifCategory);
             if (priceFromDB <= 0) {
                 System.out.println("No price in DB found. Apply default price");
-                return determineDefaultPrice(priceGroupId, date);
+                return fetchDefaultPriceFromDB(priceGroupId, date);
             }
             return priceFromDB;
-        } catch (NumberFormatException e) {
+        } catch (final OracleDBException e) {
             System.out.println("Error reading from DB");
-            throw new CustomValidationException("Could not parse one of the parameters. original exception:  "+e.getMessage());
+            throw new MyTechnicalException("Database Error occured. original exception:  "+e.getMessage());
         } finally {
             System.out.println("Date value was: "+ date);
         }
     }
 
-    private static int determineDefaultPrice(String priceGroupId, String date) {
+    private static int fetchDefaultPriceFromDB(String priceGroupId, String date) throws OracleDBException {
         System.out.println(date + priceGroupId);
         return 15;
     }
 
-    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws NumberFormatException {
+    private static int lookupPriceInDB(String priceGroupId, int tarifCategory) throws OracleDBException {
         int priceGroupIdInt = Integer.parseInt(priceGroupId);
         //Nonsensical logic below just simulates looking up of a value in DB. It is NOT "domain logic"
         return priceGroupIdInt * tarifCategory;
     }
 
-    public static class CustomValidationException extends Throwable {
-        public CustomValidationException(String message) {
+    public static class MyTechnicalException extends Throwable {
+        public MyTechnicalException(String message) {
             super(message);
         }
+    }
+
+    public static class OracleDBException extends Exception {
     }
 }
