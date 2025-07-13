@@ -11,7 +11,7 @@ import java.util.Date;
  1) Refactor: Introduce Parameter Object. Cursor on "lookupPriceInDB()" method. In "Introduce Parameter Object" dialog:
     1a) In "Create new class Name" box enter "MonthYear".
     1b) In "Parameters to Extract" grid select "int month" and "int year" only.
- 	  1c) Click "Refactor" button.
+ 	1c) Click "Refactor" button.
     1d) In "Add File to Git" dialog click "Add" button.
  2) Refactor: Introduce Variable. Place cursor in "calculateNettoPrice()" method on "new MonthYear(month, year)".
  3) Refactor: Inline Variable. Place cursor in "calculateNettoPrice()" method on "month" variable.
@@ -23,7 +23,7 @@ import java.util.Date;
     6c) Click "Refactor" button
  7) Intention: Replace constructor with factory method. Place cursor on "MonthYear(int, int)" constructor. In "Replace Constructor With Factory Method" dialog:
     7a) In "Factory method name" box enter "createFromIntegers".
- 	  7b) Click "Refactor" button.
+ 	7b) Click "Refactor" button.
  8) Refactor: Introduce Parameter. Place cursor in "calculateNettoPrice()" method on "monthYear" variable.
  9) Refactor: Introduce Variable. Place cursor in "controller()" method on "MonthYear.createFromString(today)" snippet.
  10) Refactor: Extract Method. Select first 3 lines in "controller()" method, name it "createFromToday".
