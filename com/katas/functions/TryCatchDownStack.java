@@ -32,7 +32,7 @@ public class TryCatchDownStack {
             }
         } catch (final DBAccess.OracleDBException e) {
             System.out.println("Error reading from DB");
-            throw new MyCustomTechnicalException("Database Error occured. original exception:  "+e.getMessage());
+            throw new MyCustomTechnicalException("Database Error occured. Original exception:  "+e.getMessage());
         }
 
         return applyDiscount(priceFromDB);
