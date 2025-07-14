@@ -4,17 +4,9 @@ import java.util.List;
 
 
 /*
-* Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"
+* Refactoring flow: "Return inside if statement inside for loop"
 *
 * ---Push logic "down-stack" (to the function "below")
-* 1) Refactor: "Extract Method": lookupPriceInDBNew() - select last two lines in the method getBaselinePrice().
-* 2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-* 3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
-*
-* --- Pull logic "up-stack" (to the function "above")
-* 1) Refactor: "Extract Method": lookupPriceInDBNew() - content last line in the method lookupPriceInDB().
-* 2) Refactor: "Inline Method...": lookupPriceInDB(). Select first option: "Inline all and remove the method"
-* 3) Refactor: "Rename..." lookupPriceInDBNew() to lookupPriceInDB()
 *
 */
 public class ReturnInsideForLoop {
