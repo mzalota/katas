@@ -34,9 +34,11 @@ public class BreakUpLogic {
             }
         }
 
-        System.out.println(numbers.size());
-        System.out.println(strings.size());
-
+        doSomeLogic(numbers, strings);
     }
 
+    private void doSomeLogic(ArrayList<Number> numbers, ArrayList<String> strings) {
+        System.out.println(numbers.size());
+        System.out.println(strings.size());
+    }
 }
