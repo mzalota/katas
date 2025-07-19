@@ -1,4 +1,7 @@
-package com.katas.combine;
+package com.katas.classes;
+
+import com.katas.helpers.MergeOneRepository;
+import com.katas.helpers.MergeTwoRepository;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,8 +46,8 @@ Combine MergeOneRepository and MergeTwoRepository classes into CommonRepository 
 */
 
 
-public class MergingService {
-    private static Logger logger = Logger.getLogger(MergingService.class.getName());
+public class C04_MergeTwoRepositories {
+    private static Logger logger = Logger.getLogger(C04_MergeTwoRepositories.class.getName());
 
     private final MergeOneRepository mergeOneRepository = new MergeOneRepository();
     private final MergeTwoRepository mergeTwoRepository = new MergeTwoRepository();

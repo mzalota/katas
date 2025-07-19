@@ -29,7 +29,7 @@ import com.katas.helpers.MyCustomTechnicalException;
  *
  */
 
-public class TryCatchDownStack {
+public class F02_TryCatchDownStack {
 
     public float getPrice(final String priceGroupId, final int tarifCategory, final String dateParam) throws MyCustomTechnicalException {
         final int priceFromDB;

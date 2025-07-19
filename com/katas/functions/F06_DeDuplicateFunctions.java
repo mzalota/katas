@@ -7,10 +7,10 @@ import java.util.logging.Logger;
 In getBaselinePrice() method we see two different functions are called to get Price from DB: lookupPriceInDB() and readPrices()
 Lets try to refactor these two functions to see if they actually have identical behavior. (Differences in logging messages can be ignored)
 */
-public class DeDuplicateFunctions {
+public class F06_DeDuplicateFunctions {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
-    private static Logger logger = Logger.getLogger(DeDuplicateFunctions.class.getName());
+    private static Logger logger = Logger.getLogger(F06_DeDuplicateFunctions.class.getName());
 
 
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {

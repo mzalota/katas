@@ -1,6 +1,6 @@
-package com.katas.domainobject;
+package com.katas.classes;
 
-public class IdentifierTypeFromParam {
+public class C01_IdentifierTypeFromParam {
 
     /*
      * ## Refactoring flow: Replace primitive-typed parameter with "Identifier Type".

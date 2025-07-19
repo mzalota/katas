@@ -1,6 +1,6 @@
-package com.katas.ifs;
+package com.katas.blocks;
 
-public class SimplifyingIfBody extends SimplifyingIfConditions {
+public class B02_SimplifyingIfBody extends B03_SimplifyingIfConditions {
 
     //1) Intention: "Extract common part from 'if'". Cursor on if keyword.
     //2) Intention: "Move up into if statement branches"

@@ -1,6 +1,6 @@
-package com.katas.ifs;
+package com.katas.blocks;
 
-public class SimplifyingIfConditions {
+public class B03_SimplifyingIfConditions {
 
     // 1) Intention: "Invert if condition". Cursor on the if keyword
     // Repeat from start -> Intention: "Transform body to single exit-point form"
