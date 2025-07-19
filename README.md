@@ -57,6 +57,7 @@
 29) Delete catch for 'xyzException'
 30) Make 'xyzMethod()' return java.lang.xyz of ancestor 
 31) Compute constant value of 'xyzVariable'
+32) Replace for-each loop with indexed 'for' loop
 
 
 - Replace Stream API chain with loop
