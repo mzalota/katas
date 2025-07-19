@@ -52,8 +52,11 @@
 24) Remove empty string operand
 25) Replace constructor with factory method
 26) Replace '+' with 'String.format()'
-27) Move 'return' closer to computation of the value of ''
-28) Delete catch for 'xyzException'
+27) Move 'return' closer to computation of the value of 'xyzVariable'
+28) Move declaration of 'xyzVariable' closer to usages
+29) Delete catch for 'xyzException'
+30) Make 'xyzMethod()' return java.lang.xyz of ancestor 
+31) Compute constant value of 'xyzVariable'
 
 
 - Replace Stream API chain with loop

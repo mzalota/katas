@@ -8,9 +8,12 @@ import java.util.List;
  * Refactoring flow: "Return inside if statement inside for loop"
  *
  * 1) Intention: "Transform body to single exit-point form". Cursor on extractIndividualLogicOutOfForLoop() method. New variables, result and finished are created.
- * 2) Refactor: "Introduce Constant.." - name DEFAULT_RESULT. Cursor on magic number 1 in "int result = 1;" snippet
- * 3) Refactor: "Rename..." variable "finished" to "matchWasFound". Cursor on newly created "finished" variable in extractIndividualLogicOutOfForLoop() method.
- * 4) Refactor: "Extract Method": select for loop and all lines above it in extractIndividualLogicOutOfForLoop() method. Name of new variable - "resultCombined"
+ * 2) Refactor: "Rename..." variable "finished" to "matchWasFound". Cursor on newly created "finished" variable in extractIndividualLogicOutOfForLoop() method.
+ * 3) Refactor: "Rename..." variable "count" to "matchAtElementIndex". Cursor on newly created "count" variable in extractIndividualLogicOutOfForLoop() method.
+ * 4) Intention: "Move up into if statement branches". Cursor on "return result;" at the bottom of the extractIndividualLogicOutOfForLoop() method.
+ * 5) Intention: "Compute constant value of ''". Cursor on result 1
+ * 5) Refactor: "Introduce Constant..." - name DEFAULT_RESULT. Cursor on the magic number "1" in the snippet "int result = 1;"
+ * 6) Refactor: "Extract Method": select for loop and all lines above it in extractIndividualLogicOutOfForLoop() method. Name of new variable - "resultCombined"
 
  * -- int getCountOfUnmatched(list)
  * 3) Refactor: "Introduce Variable": count - select "resultCombined.count()" in extractIndividualLogicOutOfForLoop() method.
