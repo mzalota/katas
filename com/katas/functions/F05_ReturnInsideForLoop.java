@@ -46,7 +46,8 @@ import java.util.List;
  * C7) Manually remove line "matchWasFound = true;" inside if statement inside for loop. It is irrelevant for calculating the value of the "result" variable.
  * C6) Intention: "Remove local variable 'matchWasFound'". Cursor on the definition of "matchWasFound" variable.
  * C9) Intention: "Move 'return' closer to computation of the value of 'result'". Cursor on "return result;".
- *
+ * -- Optionally you can try to convert for-each loop to indexed for loop and notice that
+ * C10) Intention "Replace for-each loop with indexed 'for' loop". Cursor on 'for' keyword "matchAtElementIndex" can be replaced with "i"
  *
  */
 public class F05_ReturnInsideForLoop {
