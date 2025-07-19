@@ -2,25 +2,27 @@
 
 # Refactoring Katas
 ## Reorganizing code within a function
-1) DeDuplicateLongStrings
+1) B01_DeDuplicateLongStrings
 2) Ifs: (See linkt to a video tutorial below)
-   - SimplifyingIfBody
-   - SimplifyingIfConditions
-   - SplitIfs
+   - B02_SimplifyingIfBody
+   - B03_SimplifyingIfConditions
+   - B04_SplitIfs
 3) Split Loop and Split Variable (see links below)
 
 ## Reorganizing code between neighbouring functions.
-3) UpAndDownStack
-4) TryCatchDownStack
-5) AddFactoryMethods
-6) DeDuplicateFunctions
+4) F01_UpAndDownStack
+5) F02_TryCatchDownStack
+6) F03_AddFactoryMethods
+7) F04_SeparateLogicFromSingleForLoop
+8) F05_ReturnInsideForLoop
+9) F06_DeDuplicateFunctions
 
 ## Reorganizing code between classes
-7) IdentifierType
-   - IdentifierTypeFromField
-   - IdentifierTypeFromParam
-8) ExtractRepository
-9) MergeRepositories
+10) IdentifierType
+   - C01_IdentifierTypeFromParam
+   - C02_IdentifierTypeFromField
+11) C03_ExtractRepository
+12) C04_MergeTwoRepositories
 
 
 # Intentions used in Katas

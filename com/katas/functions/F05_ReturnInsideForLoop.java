@@ -9,7 +9,7 @@ import java.util.List;
 * ---Push logic "down-stack" (to the function "below")
 *
 */
-public class ReturnInsideForLoop {
+public class F05_ReturnInsideForLoop {
 
     public int extractIndividualLogicOutOfForLoop(List<Integer> list) {
 

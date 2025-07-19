@@ -1,6 +1,6 @@
-package com.katas.ifs;
+package com.katas.blocks;
 
-public class SplitIfs {
+public class B04_SplitIfs {
 
 
     /*

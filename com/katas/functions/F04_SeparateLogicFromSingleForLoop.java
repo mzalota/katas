@@ -25,10 +25,9 @@ import java.util.List;
  * -- getStrings()
  * --repeat steps 4-12, but for strings list.
  */
-public class SeparateLogicFromSingleForLoop {
+public class F04_SeparateLogicFromSingleForLoop {
 
     public void separateTwoAspectsInOneLoop(List<Integer> list) {
-
         ArrayList<Number> numbers = new ArrayList<>();
         ArrayList<String> strings = new ArrayList<>();
         for (Integer element : list) {

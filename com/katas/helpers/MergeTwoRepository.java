@@ -1,4 +1,4 @@
-package com.katas.combine;
+package com.katas.helpers;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

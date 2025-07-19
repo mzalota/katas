@@ -1,6 +1,6 @@
-package com.katas.domainobject;
+package com.katas.classes;
 
-public class IdentifierTypeFromField {
+public class C02_IdentifierTypeFromField {
 
     /* ## Refactoring flow: Replace primitive-typed field with "Identifier Type".
      * (Ref: https://medium.com/@gara.mohamed/domain-driven-design-the-identifier-type-pattern-d86fd3c128b3)
@@ -37,12 +37,12 @@ public class IdentifierTypeFromField {
     private final double customerId;
     private final String name ;
 
-    public IdentifierTypeFromField(final double customerId, final String name) {
+    public C02_IdentifierTypeFromField(final double customerId, final String name) {
         this.customerId = customerId;
         this.name = name;
     }
 
-    public boolean sameAs(final IdentifierTypeFromField customerOther) {
+    public boolean sameAs(final C02_IdentifierTypeFromField customerOther) {
         if (this.customerId != customerOther.customerId) {
             return false;
         }

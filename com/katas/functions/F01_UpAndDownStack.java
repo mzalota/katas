@@ -1,7 +1,7 @@
 package com.katas.functions;
 
 
-public class UpAndDownStack {
+public class F01_UpAndDownStack {
 
 /*
 * Refactoring flow: "Push logic down-stack" and "Pull logic up-stack"

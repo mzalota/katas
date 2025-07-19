@@ -1,4 +1,4 @@
-package com.katas.domainobject;
+package com.katas.functions;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -38,7 +38,7 @@ import java.util.Date;
  - createFromToday()
 */
 
-public class AddFactoryMethods {
+public class F03_AddFactoryMethods {
 
     public double controller(int priceGroupId) {
         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");

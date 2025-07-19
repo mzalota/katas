@@ -1,9 +1,6 @@
-package com.katas;
+package com.katas.blocks;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public class DeDuplicateLongStrings {
+public class B01_DeDuplicateLongStrings {
 
     /*
      * 1) Intention: "Join declaration and assignment". Cursor on "queryStr" variable

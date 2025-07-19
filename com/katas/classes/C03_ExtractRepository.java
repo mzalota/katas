@@ -1,4 +1,4 @@
-package com.katas.dependency;
+package com.katas.classes;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,10 +59,10 @@ Notice three methods that interact DB: "lookupPriceInDB()", "readDiscount()" and
 
 */
 
-public class ExtractRepository {
+public class C03_ExtractRepository {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
-    private static Logger logger = Logger.getLogger(ExtractRepository.class.getName());
+    private static Logger logger = Logger.getLogger(C03_ExtractRepository.class.getName());
 
 
     private int lookupPriceInDB(int tarifCategory, int baselineMonth, int baselineYear, int priceGroupIdInt) {
