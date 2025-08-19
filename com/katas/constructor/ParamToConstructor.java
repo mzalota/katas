@@ -34,15 +34,20 @@ package com.katas.constructor;
 
 public class ParamToConstructor {
 
-    public double getDiscount( String date, int orderSize) {
-        String year = date.substring(6,10);
-        return 15.7 * orderSize;
+    private final int multiplier;
+
+    public ParamToConstructor(int i) {
+        this.multiplier = i;
     }
 
+    public double getDiscount( String date, int orderSize) {
+        String year = date.substring(6,10);
+        return 15.7 * orderSize * multiplier;
+    }
 
     public double getPromotion( String date, int orderSize) {
         String year = date.substring(6,10);
-        return 12.1 * orderSize;
+        return 12.1 * orderSize*multiplier;
     }
 
 }
