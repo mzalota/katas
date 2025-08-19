@@ -3,9 +3,9 @@ package com.katas.constructor;
 
 
 /*
- * Move date parameter to from every method to constructor.
+ * Move date parameter from every method to constructor.
  *
- * 1) Refactor: Extract Superclass. Place cursor on "loadFromDB()" method in "MergeOneReposory" class:
+ * 1) Refactor: Extract Superclass. Place cursor on "loadFromDB()" method in "MergeOneRepository" class:
  *    1a) In "Superclass name" box enter "CommonRepository".
  *    1b) In "Members to Form Superclass" grid select all 3 members and then click "Refactor" button.
  *    1c) In "Analyze and Replace Usages" dialog click "Yes".
@@ -33,19 +33,15 @@ package com.katas.constructor;
  */
 
 public class ParamToConstructor {
-    
-    private String date;
 
     public double getDiscount( String date, int orderSize) {
-        this.date = date;
-        String year = this.date.substring(6,10);
+        String year = date.substring(6,10);
         return 15.7 * orderSize;
     }
 
 
     public double getPromotion( String date, int orderSize) {
-        this.date = date;
-        String year = this.date.substring(6,10);
+        String year = date.substring(6,10);
         return 12.1 * orderSize;
     }
 
