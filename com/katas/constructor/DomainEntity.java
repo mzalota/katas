@@ -37,8 +37,8 @@ public class DomainEntity {
 
     private final int multiplier;
 
-    public DomainEntity(int i) {
-        this.multiplier = i;
+    public DomainEntity(int multi) {
+        this.multiplier = multi;
     }
 
     public double getDiscount( String date, int orderSize) {
