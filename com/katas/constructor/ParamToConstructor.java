@@ -28,7 +28,8 @@ package com.katas.constructor;
  * 11) Refactor: Extract Field. In "MergingService", select "new CommonRepository()" code snippet. Check "Replace all occurences(2)" box. Field "commonRepository" will be created.
  * 12) Refactor: Inline Field. "mergeOneRepository"
  * 13) Refactor: Inline Field. "mergeTwoRepository"
- * 14) In CommonRepository class deduplicate "jdbcConnection*" fields and "loadFromDB*" methods
+ *
+ * 14) Refactor: Inline class
  *
  */
 
