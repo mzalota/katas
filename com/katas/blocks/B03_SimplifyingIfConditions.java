@@ -1,8 +1,8 @@
-package com.katas.ifs;
+package com.katas.blocks;
 
-public class NestedIfToPreconditions {
+public class B03_SimplifyingIfConditions {
 
-    // 1) Intention: "Invert if condition"
+    // 1) Intention: "Invert if condition". Cursor on the if keyword
     // Repeat from start -> Intention: "Transform body to single exit-point form"
     public void ifStatmentAtFunctionEnd(boolean firstArgument) {
         if (firstArgument) {
@@ -10,10 +10,12 @@ public class NestedIfToPreconditions {
         }
     }
 
-
-    // 1) Intention: "Extract if"
-    // 2) Intention: "Invert if condition"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    // 1) Intention: "Invert if condition". Cursor on the first if keyword
+    // 2) Intention: "Invert if condition". Cursor on the second if keyword
+    // 3) Intention: "Invert if condition". Cursor on the third if keyword
+    //
+    // To repeat from the start:
+    // Intention: "Transform body to single exit-point form". Cursor on the function name
     public void ifNested(boolean firstArgument, boolean secondArgument, boolean thirdArgument) {
         if (firstArgument) {
             if (!secondArgument) {
@@ -30,21 +32,22 @@ public class NestedIfToPreconditions {
     // 4) Intention: "Invert if condition"
     // 5) Intention: "Invert if condition" (on third if)
     //
-    // To repeat from start:
-    // A) Intention: "Transform body to single exit-point form"
-    // B) Intention: "Merge nested 'ifs'
+    // To repeat from the start:
+    // A) Intention: "Transform body to single exit-point form". Cursor on the function name
+    // B) Intention: "Merge nested 'ifs'. Cursor on the first if keyword
     public void ifMultipleConditions(boolean firstArgument, Boolean secondArgument) {
-        if (!firstArgument && (secondArgument != null) && !secondArgument) {
+        if (!firstArgument && secondArgument != null && !secondArgument) {
             System.out.println("in if");
         }
     }
-
 
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
     // 3) Intention: "Remove redundant else"
     // 4) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+
+    // To repeat from start:
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifWithElse(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in if");
@@ -57,9 +60,11 @@ public class NestedIfToPreconditions {
     // 2) Manually add explicit "return;" at the end of the function
     // 3) Intention: "Move up into if statement branches"
     // 4) Intention: "Remove redundant else"
-    // 3) Intention: "Move up into if statement branches" (return; into if-else)
-    // 4) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    // 5) Intention: "Move up into if statement branches" (return; into if-else)
+    // 6) Intention: "Remove unnecessary 'return'"
+    //
+    // To repeat from start
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifWithElseIf(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in if");
@@ -77,7 +82,9 @@ public class NestedIfToPreconditions {
     // 4) Intention: "Invert if condition"
     // 5) Intention: "Remove redundant else"
     // 6) Intention: "Remove unnecessary 'return'"
-    // Repeat from start -> Intention: "Transform body to single exit-point form"
+    //
+    // Repeat from start:
+    // Intention: "Transform body to single exit-point form". Cursor on the first if keyword
     public void ifNotAtFunctionEnd(boolean firstArgument, boolean secondArgument) {
         if (firstArgument) {
             System.out.println("in inner if");
@@ -86,6 +93,8 @@ public class NestedIfToPreconditions {
     }
 
 
+    // More realistic example. Mixing all techniques.
+    //
     // 1) Manually add explicit "return;" at the end of the function
     // 2) Intention: "Move up into if statement branches"
     // 3) Intention: "Invert if condition" (code in else condition is much shorter than in if condition, so we bring it to the top of function )
@@ -94,7 +103,7 @@ public class NestedIfToPreconditions {
     // 6) Intention: "Invert if condition"
     // 7) Intention: "Remove redundant else"
     // 8) Intention: "Remove unnecessary 'return'"
-    public void realisticExample(boolean isHungry, boolean foodIsReady) {
+    public void makeSureBabyIsNotHungry(boolean isHungry, boolean foodIsReady) {
         if (isHungry) {
             System.out.println("In if top: she is hungry");
             if (foodIsReady) {
@@ -155,6 +164,14 @@ public class NestedIfToPreconditions {
         }
     }
 
+
+    // 1) Refactor: Extract method. Select everything inside if condition. Method name "inputsAreValid()"
+    // 2) Refactor: "Invert Boolean". Cursor on inputsAreValid() method definition.
+    public void invertBooleanRefactoring(boolean firstArgument, Boolean secondArgument) {
+        if (secondArgument != null && !secondArgument && firstArgument) {
+            System.out.println("do some logic");
+        }
+    }
 
     protected void fooMethod(String message) {
         System.out.println(message);

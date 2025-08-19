@@ -1,4 +1,4 @@
-package com.katas.combine;
+package com.katas.helpers;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,7 +7,6 @@ public class MergeTwoRepository {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
     private static Logger logger = Logger.getLogger(MergeTwoRepository.class.getName());
-
 
     public double loadFromDB(Integer packageId, String category) {
 

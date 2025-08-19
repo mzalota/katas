@@ -1,49 +1,87 @@
 
-## Intentions used in Kata
 
-1a) "Extract if (condition)"
-1b) "Merge nested 'ifs'"
-2) "Invert if condition"
+# Refactoring Katas
+## Reorganizing code within a function
+1) B01_DeDuplicateLongStrings
+2) Ifs: (See linkt to a video tutorial below)
+   - B02_SimplifyingIfBody
+   - B03_SimplifyingIfConditions
+   - B04_SplitIfs
+3) Split Loop and Split Variable (see links below)
 
-3a) "Move up into if statement branches"
-3b) "Extract common part from 'if'"
-3bb) "Extract common part from 'if'(may change semantics)"
+## Reorganizing code between neighbouring functions.
+4) F01_UpAndDownStack
+5) F02_TryCatchDownStack
+6) F03_AddFactoryMethods
+7) F04_SeparateLogicFromSingleForLoop
+8) F05_ReturnInsideForLoop
+9) F06_DeDuplicateFunctions
 
-4a) "Split 'else if'"
-4b) Merge 'else if'
-
-5)"Remove redundant else"
-
-6)"Transform body to single exit-point form"
-
-
-"Reuse previous variable 'message' declaration"
-"Split into declaration and assignment"
-"Expand boolean to multiple ifs"
-"Remove unnecessary 'return'"
+## Reorganizing code between classes
+10) IdentifierType
+   - C01_IdentifierTypeFromParam
+   - C02_IdentifierTypeFromField
+11) C03_ExtractRepository
+12) C04_MergeTwoRepositories
 
 
-Other Intentions that can be used in If statements:
-- "Replace && with ||"
-- "Extract If Condition" 
-- Split 'if else' (on else if)
-- Swap if statements (on else if)
+# Intentions used in Katas
+1) Extract if (condition)
+2) Invert if condition
+3) Merge nested 'ifs'
+4) Replace && with ||
+5) Move up into if statement branches
+6) Extract common part from 'if'
+7) Extract common part from 'if' (may change semantics)
+8) Split 'else if'
+9) Merge 'else if'
+10) Remove redundant else
+11) Swap if statements (on else if)
+12) Transform body to single exit-point form
+13) Reuse previous variable 'message' declaration
+14) Split into declaration and assignment
+15) Join declaration and assignment
+16) Expand boolean to multiple ifs
+17) Replace constructor with factory method
+18) Reuse previous variable 'message' declaration
+19) Change access modifier: public
+20) Join concatenated string literals
+21) Remove unnecessary 'return'
+22) Convert record to class
+23) Remove unnecessary parentheses
+24) Remove empty string operand
+25) Replace constructor with factory method
+26) Replace '+' with 'String.format()'
+27) Move 'return' closer to computation of the value of 'xyzVariable'
+28) Move declaration of 'xyzVariable' closer to usages
+29) Delete catch for 'xyzException'
+30) Make 'xyzMethod()' return java.lang.xyz of ancestor 
+31) Compute constant value of 'xyzVariable'
+32) Replace for-each loop with indexed 'for' loop
 
-Refactorings:
-- Extract Variable (Ctrl+Alt+V)
-- Extract Method (Ctrl+Alt+M)
-- Inline (Ctrl+Alt+N)
 
-Three-step refactoring, "extract-inline-rename" with introducing a temporary name, is a commonly occuring pattern. Examples:
-1) Upstack, Donwstack 
-2) De-Duplicate
+- Replace Stream API chain with loop
+- Collapse loop with Stream API
 
-References to additional refactoring videos
-By Dmitry Kandalov - IDEAs
-- Gilded Rose Refactoring Kata https://www.youtube.com/watch?v=AxxNHKCldzA
+## References to additional refactoring tutorials
 
-By Emily Bache (https://www.youtube.com/@EmilyBache-tech-coach):
+### By Emily Bache (https://www.youtube.com/@EmilyBache-tech-coach):
 - Split Variable: https://www.youtube.com/watch?v=wPmJz2ynb3k
-- Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M
+- Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M (https://github.com/emilybache/Theatrical-Players-Refactoring-Kata)
 - Conditionals/Ifs (Guard clause): https://www.youtube.com/watch?v=fLaXlBVUb0c
 
+### By JetBrains (https://www.jetbrains.com/help/idea/refactoring-source-code.html):
+- Rename (Shift+F6): https://www.jetbrains.com/help/idea/rename-refactorings.html#invoke-rename-refactoring
+- Extract Variable (Ctrl+Alt+V): https://www.jetbrains.com/help/idea/extract-variable.html
+- Extract Method (Ctrl+Alt+M):  https://www.jetbrains.com/help/idea/extract-method.html
+- Extract Field (Ctrl+Alt+F):  https://www.jetbrains.com/help/idea/extract-field.html
+- Extract Parameter (Ctrl+Alt+P):  https://www.jetbrains.com/help/idea/extract-parameter.html
+- Inline (Ctrl+Alt+N): https://www.jetbrains.com/help/idea/inline.html
+- Introduce Parameter Object: https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_parameter_object
+- Move Instance Method: https://www.jetbrains.com/help/idea/move-refactorings.html#instance_method_example
+- Extract Superclass: https://www.jetbrains.com/help/idea/extract-superclass.html
+- Pull Members Up: https://www.jetbrains.com/help/idea/pull-members-up.html
+- Invert Boolean: https://www.jetbrains.com/help/idea/invert-boolean-refactoring.html
+
+### By Dmitry Kandalov - IDEAs
+- Gilded Rose Refactoring Kata https://www.youtube.com/watch?v=AxxNHKCldzA
