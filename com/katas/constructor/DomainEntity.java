@@ -33,11 +33,11 @@ package com.katas.constructor;
  *
  */
 
-public class ParamToConstructor {
+public class DomainEntity {
 
     private final int multiplier;
 
-    public ParamToConstructor(int i) {
+    public DomainEntity(int i) {
         this.multiplier = i;
     }
 
