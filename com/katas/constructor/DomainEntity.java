@@ -1,15 +1,27 @@
 package com.katas.constructor;
 
 
+
 /*
  * Move date parameter from every method to constructor.
  *
  * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in DomainEntity class.
  * 2) Refactor: Introduce Field. Place cursor on "date" variable in the body of getDiscount() method in DomainEntity class.
  *     2a) rename field name from offered "private String date1;" to "private String date;"
- * 3) Manually delete the second/redundant field 'date' in DomainEntity class.
- * 4) Refactor Extract Method: getDiscountNew().  Select body of getDiscount() except for the first line "this.setDate(date);".
- * 5) Refactor Extract Method: getDiscountNew().  Select body of getDiscount() except for the first line "this.setDate(date);".
+ * 3) Manually delete the duplicate (redundant) field 'date' in DomainEntity class.
+ * 4) Refactor Extract Method: getDiscountNew().  Select body of getDiscount() except for the first line "this.setDate(date);". Keep original signature
+ * 5) Refactor Extract Method: getPromotionNew().  Select body of getPromotion() except for the first line "this.setDate(date);". Keep original signature
+ * 6) Intention: add 'this' qualifier. Cursor on getDiscountNew() call in getDiscount() method.
+ * 7) Refactor: Introduce Variable: domainEntity. Place cursor on 'this' keyword in getDiscount() method.
+ *  7a) In "Expressions" dialog select 'this'
+ *  7b) In "Multiple occurrences found" dialog select "Replace all 2 occurrences"
+ * 8) Intention: add 'this' qualifier. Cursor on getPromotionNew() call in getPromotion() method.
+ * 9) Refactor: Introduce Variable: domainEntity. Place cursor on 'this' keyword in getPromotion() method.
+ *  9a) In "Expressions" dialog select 'this'
+ *  9b) In "Multiple occurrences found" dialog select "Replace all 2 occurrence"
+ *
+ *
+ *
  * 4) Refactor: Encapsulate Fields. Place cursor on "date" field in DomainEntity class. In "Encapsulate Fields" dialog:
  *   4a) Select only "date" field. Don't select "multiplier" field
  *   4b) Select 2 boxes in Encapsulate section: , "Set access", "Use accessors even when field is accessible". Deselect "Get access" box
@@ -18,10 +30,10 @@ package com.katas.constructor;
  * 6) Intention: Make 'setDate()' return 'com.katas.constructor.DomainEntity'. Place cursor on ' return this;' in setDate() method.
  * 7) Refactor: Introduce Variable: domainEntity. Place cursor on 'this.date' keyword in getPromotion() method.
  *  7a) In "Expressions" dialog select 'this'
- *  7b) In "Multiple occurrences found" dialog select "Replace this occurrence only"
+ *  7b) In "Multiple all occurrences found" dialog select "Replace this occurrence only"
  * 8) Refactor: Introduce Variable: domainEntity. Place cursor on 'this.date' keyword in getDiscount() method.
  *  8a) In "Expressions" dialog select 'this'
- *  8b) In "Multiple occurrences found" dialog select "Replace this occurrence only"
+ *  8b) In "Multiple all 2 occurrences" dialog select "Replace this occurrence only"
  * 9) Refactor: Extract Method: createNew(). Select snippet with two lines "this.setDate(date);  DomainEntity domainEntity = this;". In "Process Duplicates" dialog click "All" button.
  * 10) Refactor: Make Static
  *
