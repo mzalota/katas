@@ -31,18 +31,18 @@ public class DomainEntity {
 
     private final int multiplier;
 
-    public DomainEntity(int multi) {
+    public DomainEntity(final int multi) {
         this.multiplier = multi;
     }
 
-    public double getDiscount( String date, int orderSize) {
-        String year = date.substring(6,10);
-        return 15.7 * orderSize * multiplier;
+    public double getDiscount( final String date, final int orderSize) {
+        final String year = date.substring(6,10);
+        return 15.7 * orderSize * this.multiplier;
     }
 
-    public double getPromotion( String date, int orderSize) {
-        String year = date.substring(6,10);
-        return 12.1 * orderSize*multiplier;
+    public double getPromotion( final String date, final int orderSize) {
+        final String year = date.substring(6,10);
+        return 12.1 * orderSize* this.multiplier;
     }
 
 }
