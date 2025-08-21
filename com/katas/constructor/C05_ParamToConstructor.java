@@ -3,7 +3,8 @@ package com.katas.constructor;
 class C05_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
-        DomainEntity domainEntity = new DomainEntity(2);
+        int defaultMultiplier = 2;
+        DomainEntity domainEntity = new DomainEntity(defaultMultiplier);
         doStep01(domainEntity, "2022-02-02", orderSize);
         doStep02(date, orderSize);
     }
@@ -13,7 +14,8 @@ class C05_ParamToConstructor {
     }
 
     private void doStep02(String date, int orderSize) {
-        DomainEntity domainEntity = new DomainEntity(1);
+        int multiplierForStep2 = 1;
+        DomainEntity domainEntity = new DomainEntity(multiplierForStep2);
         domainEntity.getPromotion(date, 19);
     }
 
