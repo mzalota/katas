@@ -8,7 +8,7 @@ package com.katas.constructor;
  * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in DomainEntity class.
  * 2) Refactor: Introduce Field. Place cursor on "date" variable in the body of getDiscount() method in DomainEntity class.
  *     2a) rename field name from offered "private String date1;" to "private String date;"
- * 3) Intention: Remove field 'date'. Cursor on the second redundant "date" field in DomainEntity class.
+ * 3) Manually delete redundant field 'date' in DomainEntity class.
  * 4) Refactor: Encapsulate Fields. Place cursor on "date" field in DomainEntity class. In "Encapsulate Fields" dialog:
  *   4a) Select only "date" field. Don't select "multiplier" field
  *   4b) Select 2 boxes in Encapsulate section: , "Set access", "Use accessors even when field is accessible". Deselect "Get access" box
