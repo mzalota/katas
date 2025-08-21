@@ -7,7 +7,9 @@ package com.katas.constructor;
  * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in DomainEntity class.
  * 2) Refactor: Introduce Field. Place cursor on "date" variable in the body of getDiscount() method in DomainEntity class.
  *     2a) rename field name from offered "private String date1;" to "private String date;"
- * 3) Manually delete redundant field 'date' in DomainEntity class.
+ * 3) Manually delete the second/redundant field 'date' in DomainEntity class.
+ * 4) Refactor Extract Method: getDiscountNew().  Select body of getDiscount() except for the first line "this.setDate(date);".
+ * 5) Refactor Extract Method: getDiscountNew().  Select body of getDiscount() except for the first line "this.setDate(date);".
  * 4) Refactor: Encapsulate Fields. Place cursor on "date" field in DomainEntity class. In "Encapsulate Fields" dialog:
  *   4a) Select only "date" field. Don't select "multiplier" field
  *   4b) Select 2 boxes in Encapsulate section: , "Set access", "Use accessors even when field is accessible". Deselect "Get access" box
@@ -23,6 +25,11 @@ package com.katas.constructor;
  * 9) Refactor: Extract Method: createNew(). Select snippet with two lines "this.setDate(date);  DomainEntity domainEntity = this;". In "Process Duplicates" dialog click "All" button.
  * 10) Refactor: Make Static
  *
+ * 10) Refactor: Inline Variable domainEntity. Place cursor on 'domainEntity' variable in createNew() method.
+
+  10) Refactor: Make Static. Place cursor on createNew() method.
+ Check box "Add object as a parameter with name:"
+ Select name variable name 'entity' from the drop-down
  * 14) Refactor: Inline class
  *
  */
