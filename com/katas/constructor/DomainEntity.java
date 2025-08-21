@@ -1,7 +1,6 @@
 package com.katas.constructor;
 
 
-
 /*
  * Move date parameter from every method to constructor.
  *
@@ -14,27 +13,15 @@ package com.katas.constructor;
  *   4b) Select 2 boxes in Encapsulate section: , "Set access", "Use accessors even when field is accessible". Deselect "Get access" box
  * 	 4c) Click "Refactor" button.
  * 5) Manually add "return this;" at the bottom of the newly created setDate() method.
- * 6) Intention: Make 'setDate()' return 'com.katas.constructor.DomainEntity'
- * 7) Refactor: Introduce Variable: domainEntity. Place cursor on 'this' keyword in getPromotion() method.
- *
- *
- * 2) In CommonRepository class, in definition of logger field, replace "MergeOneRepository" class with "CommonRepository".
- * 3) Refactor: Inline. Place cursor on "MergeOneReposory" class. Click "Refactor" button.
- * 4) Manually add "extends CommonRepository" to MergeTwoRepository class definition.
- * 5) Refactor: Pull Members Up Superclass. Place cursor on "loadFromDB()" method in "MergeTwoReposory" class:
- *    5a) In "Members to be pulled up", select all members.
- *    5b) In Problems Detected we see messages that Common Repository already contains loadFromDB() method and logger field. Click "Cancel"
- *    5c) In "Pull Members Up" dialog "Click" button again.
- * 6) Refactor: Rename... "loadFromDB()" in MergeTwoReposory class to "loadFromDB2()". Select "Refactor only current method".
- * 7) Refactor: Pull Members Up Superclass. Place cursor on "loadFromDB()" method in "MergeTwoReposory" class
- *    7a) In "Members to be pulled up" check "loadFromDB2()" and "jdbcConnection:String"
- * 	  7b) In Problems Detected we see message that "logger" will not be accessible. We ignore this problem. Click "Continue" button.
- * 8) In "CommonRepository.loadFromDB2()" method replace problematic "MergeTwoRepository.logger" with "logger"
- * 9) In "MergeTwoRepository" class delete "logger" field, so that the class is empty.
- * 10) Refactor: Inline. Place cursor on "MergeTwoReposory" class. Click "Refactor" button.
- * 11) Refactor: Extract Field. In "MergingService", select "new CommonRepository()" code snippet. Check "Replace all occurences(2)" box. Field "commonRepository" will be created.
- * 12) Refactor: Inline Field. "mergeOneRepository"
- * 13) Refactor: Inline Field. "mergeTwoRepository"
+ * 6) Intention: Make 'setDate()' return 'com.katas.constructor.DomainEntity'. Place cursor on ' return this;' in setDate() method.
+ * 7) Refactor: Introduce Variable: domainEntity. Place cursor on 'this.date' keyword in getPromotion() method.
+ *  7a) In "Expressions" dialog select 'this'
+ *  7b) In "Multiple occurrences found" dialog select "Replace this occurrence only"
+ * 8) Refactor: Introduce Variable: domainEntity. Place cursor on 'this.date' keyword in getDiscount() method.
+ *  8a) In "Expressions" dialog select 'this'
+ *  8b) In "Multiple occurrences found" dialog select "Replace this occurrence only"
+ * 9) Refactor: Extract Method: createNew(). Select snippet with two lines "this.setDate(date);  DomainEntity domainEntity = this;". In "Process Duplicates" dialog click "All" button.
+ * 10) Refactor: Make Static
  *
  * 14) Refactor: Inline class
  *
