@@ -5,12 +5,11 @@ package com.katas.constructor;
 /*
  * Move date parameter from every method to constructor.
  *
- * 1) Refactor: Extract Superclass. Place cursor on "loadFromDB()" method in "MergeOneRepository" class:
- *    1a) In "Superclass name" box enter "CommonRepository".
- *    1b) In "Members to Form Superclass" grid select all 3 members and then click "Refactor" button.
- *    1c) In "Analyze and Replace Usages" dialog click "Yes".
- *    1d) In "Rename Variables" dialog click "Select all" button and then click "OK".
- *    1e) In "Add File to Git" dialog click "Add" button.
+ * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in DomainEntity class.
+ * 2) Refactor: Introduce Field. Place cursor on "date" variable in the body of getDiscount() method in DomainEntity class.
+ *     2a) rename field name from offered "private String date1;" to "private String date;"
+ * 3) Intention: Remove field 'date'. Cursor on the second redundant "date" field in DomainEntity class.
+ *
  * 2) In CommonRepository class, in definition of logger field, replace "MergeOneRepository" class with "CommonRepository".
  * 3) Refactor: Inline. Place cursor on "MergeOneReposory" class. Click "Refactor" button.
  * 4) Manually add "extends CommonRepository" to MergeTwoRepository class definition.
