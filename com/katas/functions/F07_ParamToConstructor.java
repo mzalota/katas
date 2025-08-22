@@ -1,4 +1,4 @@
-package com.katas.classes;
+package com.katas.functions;
 
 import com.katas.helpers.DomainEntity;
 
