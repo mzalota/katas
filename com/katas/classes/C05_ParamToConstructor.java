@@ -1,4 +1,6 @@
-package com.katas.constructor;
+package com.katas.classes;
+
+import com.katas.helpers.DomainEntity;
 
 /*
  * Move date parameter from every method to constructor.
@@ -31,7 +33,7 @@ package com.katas.constructor;
  * -- Replace original DomainEntity(int) constructor in method doStep02() with a temporary factory method "createNew(date, int)".
  * 19) Refactor: Extract Method: createNew(). Select snippet in doStep02() method in C05_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
  * 20) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
- *  20a) In "To (fully qualified name)" box enter "com.katas.constructor.DomainEntity".
+ *  20a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  20b) In "Members to be moved (static only)" grid, select "createNew()" method.
  *  20c) Click "Refactor" button.
  *
@@ -40,7 +42,7 @@ package com.katas.constructor;
  * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in C05_ParamToConstructor class
  * 23) Refactor: Extract Method: createNew2(). Select snippet in orchestrator() method with two lines "DomainEntity domainEntity = new DomainEntity(defaultMultiplier); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, startingDate);".
  * 24) Refactor: Move Members. Place cursor on newly created "createNew2()" method definition. In "Move Static Members" dialog:
- *  24a) In "To (fully qualified name)" box enter "com.katas.constructor.DomainEntity".
+ *  24a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  24b) In "Members to be moved (static only)" grid, select "createNew2()" method.
  *  24c) Click "Refactor" button
 
@@ -56,32 +58,24 @@ package com.katas.constructor;
  * 33) Intention: Safe delete DomainEntity(int). Cursor on the original constructor with one parameter.
  *
  */
+class C05_ParamToConstructor {
 
-public class DomainEntity {
-
-    private final int multiplier;
-
-    public DomainEntity(final int multi) {
-        this.multiplier = multi;
+    public void orchestrator(String date, int orderSize) {
+        int defaultMultiplier = 2;
+        String startingDate = "2022-02-02";
+        DomainEntity domainEntity = new DomainEntity(defaultMultiplier);
+        doStep01(domainEntity, startingDate, orderSize);
+        doStep02(date, orderSize);
     }
 
-    public double getDiscount( final String date, final int orderSize) {
-        final String year = date.substring(6,10);
-        if (year != "2000") {
-            return 15.7 * orderSize * this.multiplier;
-        } else {
-            return 2000;
-        }
+    private void doStep01(DomainEntity domainEntity, String date, int orderSize) {
+        domainEntity.getDiscount(date, orderSize);
     }
 
-    public double getPromotion( final String date, final int orderSize) {
-        final String year = date.substring(6,10);
-        if (year != "2000") {
-            return 12.1 * orderSize* this.multiplier;
-        } else {
-            return 0.2;
-        }
+    private void doStep02(String date, int orderSize) {
+        int multiplierForStep2 = 1;
+        DomainEntity domainEntity = new DomainEntity(multiplierForStep2);
+        domainEntity.getPromotion(date, 19);
     }
 
 }
-
