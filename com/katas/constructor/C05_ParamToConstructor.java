@@ -4,8 +4,9 @@ class C05_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;
+        String startingDate = "2022-02-02";
         DomainEntity domainEntity = new DomainEntity(defaultMultiplier);
-        doStep01(domainEntity, "2022-02-02", orderSize);
+        doStep01(domainEntity, startingDate, orderSize);
         doStep02(date, orderSize);
     }
 
