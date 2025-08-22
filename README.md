@@ -1,5 +1,4 @@
 
-
 # Refactoring Katas
 ## Reorganizing code within a function
 1) B01_DeDuplicateLongStrings
@@ -16,13 +15,14 @@
 7) F04_SeparateLogicFromSingleForLoop
 8) F05_ReturnInsideForLoop
 9) F06_DeDuplicateFunctions
+10) F07_ParamToConstructor
 
 ## Reorganizing code between classes
-10) IdentifierType
+11) IdentifierType
    - C01_IdentifierTypeFromParam
    - C02_IdentifierTypeFromField
-11) C03_ExtractRepository
-12) C04_MergeTwoRepositories
+12) C03_ExtractRepository
+13) C04_MergeTwoRepositories
 
 
 # Intentions used in Katas
@@ -58,30 +58,34 @@
 30) Make 'xyzMethod()' return java.lang.xyz of ancestor 
 31) Compute constant value of 'xyzVariable'
 32) Replace for-each loop with indexed 'for' loop
-
+33) Add 'this' qualifier
+34) Safe delete
 
 - Replace Stream API chain with loop
 - Collapse loop with Stream API
 
 ## References to additional refactoring tutorials
 
+### By JetBrains (https://www.jetbrains.com/help/idea/refactoring-source-code.html):
+- Rename (Shift+F6): https://www.jetbrains.com/help/idea/rename-refactorings.html#invoke-rename-refactoring
+- Extract Method (Ctrl+Alt+M):  https://www.jetbrains.com/help/idea/extract-method.html
+- Introduce Variable (Ctrl+Alt+V): https://www.jetbrains.com/help/idea/extract-variable.html
+- Introduce Field (Ctrl+Alt+F):  https://www.jetbrains.com/help/idea/extract-field.html
+- Introduce Parameter (Ctrl+Alt+P):  https://www.jetbrains.com/help/idea/extract-parameter.html
+- Inline (Ctrl+Alt+N): https://www.jetbrains.com/help/idea/inline.html
+- Introduce Parameter Object: https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_parameter_object
+- Move Instance Method: https://www.jetbrains.com/help/idea/move-refactorings.html#instance_method_example
+- Move Members: https://www.jetbrains.com/help/idea/move-refactorings.html,  https://www.jetbrains.com/help/idea/move-members-dialog.html
+- Pull Members Up: https://www.jetbrains.com/help/idea/pull-members-up.html
+- Extract Superclass: https://www.jetbrains.com/help/idea/extract-superclass.html
+- Invert Boolean: https://www.jetbrains.com/help/idea/invert-boolean-refactoring.html
+- Make Static: https://www.jetbrains.com/help/idea/make-method-static.html 
+- Generate Constructor: https://www.jetbrains.com/guide/java/tips/generate-getters-and-setters/
+
 ### By Emily Bache (https://www.youtube.com/@EmilyBache-tech-coach):
 - Split Variable: https://www.youtube.com/watch?v=wPmJz2ynb3k
 - Split Loop: https://www.youtube.com/watch?v=yYC7eaRVc7M (https://github.com/emilybache/Theatrical-Players-Refactoring-Kata)
 - Conditionals/Ifs (Guard clause): https://www.youtube.com/watch?v=fLaXlBVUb0c
-
-### By JetBrains (https://www.jetbrains.com/help/idea/refactoring-source-code.html):
-- Rename (Shift+F6): https://www.jetbrains.com/help/idea/rename-refactorings.html#invoke-rename-refactoring
-- Extract Variable (Ctrl+Alt+V): https://www.jetbrains.com/help/idea/extract-variable.html
-- Extract Method (Ctrl+Alt+M):  https://www.jetbrains.com/help/idea/extract-method.html
-- Extract Field (Ctrl+Alt+F):  https://www.jetbrains.com/help/idea/extract-field.html
-- Extract Parameter (Ctrl+Alt+P):  https://www.jetbrains.com/help/idea/extract-parameter.html
-- Inline (Ctrl+Alt+N): https://www.jetbrains.com/help/idea/inline.html
-- Introduce Parameter Object: https://www.jetbrains.com/help/idea/extract-into-class-refactorings.html#extract_parameter_object
-- Move Instance Method: https://www.jetbrains.com/help/idea/move-refactorings.html#instance_method_example
-- Extract Superclass: https://www.jetbrains.com/help/idea/extract-superclass.html
-- Pull Members Up: https://www.jetbrains.com/help/idea/pull-members-up.html
-- Invert Boolean: https://www.jetbrains.com/help/idea/invert-boolean-refactoring.html
 
 ### By Dmitry Kandalov - IDEAs
 - Gilded Rose Refactoring Kata https://www.youtube.com/watch?v=AxxNHKCldzA

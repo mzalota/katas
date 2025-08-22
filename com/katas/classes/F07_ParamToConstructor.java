@@ -21,25 +21,25 @@ import com.katas.helpers.DomainEntity;
  *  9a) In "Expressions" dialog select 'this'
  *  9b) In "Multiple occurrences found" dialog select "Replace all 2 occurrence"
  * 10) Refactor: Extract Method: factoryMethodTmp(). Select snippet in getPromotion() method with two lines "DomainEntity domainEntity = this; domainEntity.date = date;". In "Process Duplicates" dialog click "All" button.
- * 11) Refactor: Inline Variable domainEntity. Place cursor on 'domainEntity' variable in factoryMethodTmp() method.
+ * 11) Refactor: Inline Variable: domainEntity. Place cursor on 'domainEntity' variable in factoryMethodTmp() method.
  * 12) Refactor: Make Static. Place cursor on factoryMethodTmp() method.
  * 13) Intention: "Change access modifier: public". For factoryMethodTmp() method.
  * 14) Intention: "Change access modifier: public". For getDiscountNew() method.
  * 15) Intention: "Change access modifier: public". For getPromotionNew() method.
  * 16) Generate: Constructor. In "Choose Fields to Initialize by Constructor" dialog select all fields.
- * 17) Refactor: "Inline Method...": getDiscount(). Select first option: "Inline all and remove the method"
- * 18) Refactor: "Inline Method...": getPromotion(). Select first option: "Inline all and remove the method"
+ * 17) Refactor: Inline Method: getDiscount(). Select first option: "Inline all and remove the method"
+ * 18) Refactor: Inline Method: getPromotion(). Select first option: "Inline all and remove the method"
  *
  * -- Replace original DomainEntity(int) constructor in method doStep02() with a temporary factory method "createNew(date, int)".
- * 19) Refactor: Extract Method: createNew(). Select snippet in doStep02() method in C05_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
+ * 19) Refactor: Extract Method: createNew(). Select snippet in doStep02() method in F07_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
  * 20) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
  *  20a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  20b) In "Members to be moved (static only)" grid, select "createNew()" method.
  *  20c) Click "Refactor" button.
  *
  * -- Replace original DomainEntity(int) constructor in method orchestrator() with another temporary factory method "createNew2(date, int)".
- * 21) Refactor: Introduce Parameter. Cursor on the domainEntity1 variable in  "doStep01()" method in C05_ParamToConstructor class
- * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in C05_ParamToConstructor class
+ * 21) Refactor: Introduce Parameter. Cursor on the domainEntity1 variable in  "doStep01()" method in F07_ParamToConstructor class
+ * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in F07_ParamToConstructor class
  * 23) Refactor: Extract Method: createNew2(). Select snippet in orchestrator() method with two lines "DomainEntity domainEntity = new DomainEntity(defaultMultiplier); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, startingDate);".
  * 24) Refactor: Move Members. Place cursor on newly created "createNew2()" method definition. In "Move Static Members" dialog:
  *  24a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
@@ -51,14 +51,14 @@ import com.katas.helpers.DomainEntity;
  * 26) Manually add date parameter as second parameter to the DomainEntity constructor in createNewFinal() method.
  * 27) Manually remove call to factoryMethodTmp() method in createNewFinal() method
  * 28) Intention: "Change access modifier: public". For createNewFinal() method.
- * 29) Refactor: "Inline Method...": createNew(). Select first option: "Inline all and remove the method"
- * 30) Refactor: "Inline Method...": createNew2(). Select first option: "Inline all and remove the method"
- * 31) Refactor: "Inline Method...": createNewFinal(). Select first option: "Inline all and remove the method"
+ * 29) Refactor: Inline Method: createNew(). Select first option: "Inline all and remove the method"
+ * 30) Refactor: Inline Method: createNew2(). Select first option: "Inline all and remove the method"
+ * 31) Refactor: Inline Method: createNewFinal(). Select first option: "Inline all and remove the method"
  * 32) Intention: Safe delete factoryMethodTmp(int). Cursor on the factoryMethodTmp() method.
  * 33) Intention: Safe delete DomainEntity(int). Cursor on the original constructor with one parameter.
  *
  */
-class C05_ParamToConstructor {
+class F07_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;
@@ -77,5 +77,4 @@ class C05_ParamToConstructor {
         DomainEntity domainEntity = new DomainEntity(multiplierForStep2);
         domainEntity.getPromotion(date, 19);
     }
-
 }
