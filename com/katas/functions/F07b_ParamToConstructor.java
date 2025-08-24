@@ -58,7 +58,7 @@ import com.katas.helpers.DomainEntity;
  * 33) Intention: Safe delete DomainEntity(int). Cursor on the original constructor with one parameter.
  *
  */
-class F07_ParamToConstructor {
+class F07b_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;
