@@ -9,23 +9,23 @@ import com.katas.helpers.EntityClass;
  * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in EntityClass class.
  * 2) Refactor Extract Method: getPromotionNew(). Select body of getPromotion() except for the first line "this.date = date;". Keep original signature.
  * 3) Intention: Add 'this' qualifier. Cursor on getPromotionNew() call in getPromotion() method.
- * 4) Refactor: Introduce Variable: EntityClass. Place cursor on 'this' keyword in getPromotion() method.
+ * 4) Refactor: Introduce Variable: entityClass. Place cursor on 'this' keyword in getPromotion() method.
  *  4a) In "Expressions" dialog select 'this'
- *  4b) In "Multiple occurrences found" dialog select "Replace all 2 occurrence"
- * 5) Refactor: Extract Method: factoryMethodTmp(). Select snippet in getPromotion() method with two lines "EntityClass EntityClass = this; EntityClass.date = date;". In "Process Duplicates" dialog click "All" button.
- * 6) Refactor: Inline Variable: EntityClass. Place cursor on 'EntityClass' variable in factoryMethodTmp() method.
- * 7) Refactor: Make Static. Place cursor on factoryMethodTmp() method.
- * 8) Intention: "Change access modifier: public". For factoryMethodTmp() method.
- * 9) Intention: "Change access modifier: public". For getPromotionNew() method.
- * 10) Generate: Constructor. In "Choose Fields to Initialize by Constructor" dialog select all fields.
- * 11) Refactor: Inline Method: getPromotion(). Select first option: "Inline all and remove the method"
+ * 5) Refactor: Extract Method: factoryMethodTmp(). Select snippet in getPromotion() method with two lines "EntityClass entityClass = this; EntityClass.date = date;".
+ * 6) Intention: Add 'this' qualifier. Cursor on getPromotionNew() call in getPromotion() method.*
+ * 7) Refactor: Inline Variable: entityClass. Place cursor on 'entityClass' variable in factoryMethodTmp() method.
+ * 8) Refactor: Make Static. Place cursor on factoryMethodTmp() method.
+ * 9) Intention: "Change access modifier: public". For factoryMethodTmp() method.
+ * 10) Intention: "Change access modifier: public". For getPromotionNew() method.
+ * 11) Generate: Constructor. In "Choose Fields to Initialize by Constructor" dialog select all fields.
+ * 12) Refactor: Inline Method: getPromotion(). Select first option: "Inline all and remove the method"
  *
  * -- Replace original EntityClass(int) constructor in method doLogic() with a temporary factory method "createNew(date, int)".
- * 12) Refactor: Extract Method: createNew(). Select snippet in doLogic() method in F07a_ParamToConstructor class with two lines "EntityClass entityClass = new EntityClass(1); EntityClass entityClass1 = EntityClass.factoryMethodTmp(EntityClass, date);".
- * 13) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
- *  13a) In "To (fully qualified name)" box enter "com.katas.helpers.EntityClass".
- *  13b) In "Members to be moved (static only)" grid, select "createNew()" method.
- *  13c) Click "Refactor" button.
+ * 13) Refactor: Extract Method: createNew(). Select snippet in doLogic() method in F07a_ParamToConstructor class with two lines "EntityClass entityClass = new EntityClass(1); EntityClass entityClass1 = EntityClass.factoryMethodTmp(EntityClass, date);".
+ * 14) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
+ *  14a) In "To (fully qualified name)" box enter "com.katas.helpers.EntityClass".
+ *  14b) In "Members to be moved (static only)" grid, select "createNew()" method.
+ *  14c) Click "Refactor" button.
  *
  * -- De-duplicate createNew and createNew2 methods in EntityClass class
  * 25) Refactor: Extract Method: createNewFinal . Select body of createNew2() method. In "Process Duplicates" dialog click "All" button.
