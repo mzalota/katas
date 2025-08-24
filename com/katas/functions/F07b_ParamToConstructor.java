@@ -3,7 +3,7 @@ package com.katas.functions;
 import com.katas.helpers.DomainEntity;
 
 /*
- * Move date parameter from every method to constructor.
+ * Move date parameter from every method to constructor. More complex version with two methods that need to be refactored and constructor upstack from refactored method.
  *
  * -- Evolve getPromotion() and getDiscount() methods to not expect date as parameter
  * 1) Refactor: Introduce Field. Place cursor on "date" variable in the body of getPromotion() method in DomainEntity class.
@@ -30,18 +30,19 @@ import com.katas.helpers.DomainEntity;
  * 17) Refactor: Inline Method: getDiscount(). Select first option: "Inline all and remove the method"
  * 18) Refactor: Inline Method: getPromotion(). Select first option: "Inline all and remove the method"
  *
- * -- Replace original DomainEntity(int) constructor in method doStep02() with a temporary factory method "createNew(date, int)".
- * 19) Refactor: Extract Method: createNew(). Select snippet in doStep02() method in F07_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
+ * -- Replace the call to the DomainEntity(int) constructor in method doStepA() with a temporary factory method "createNew(date, int)".
+ * 19) Refactor: Extract Method: createNew(). Select snippet in doStepA() method in F07_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
  * 20) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
  *  20a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  20b) In "Members to be moved (static only)" grid, select "createNew()" method.
  *  20c) Click "Refactor" button.
  *
- * -- Replace original DomainEntity(int) constructor in method orchestrator() with another temporary factory method "createNew2(date, int)".
- * 21) Refactor: Introduce Parameter. Cursor on the domainEntity1 variable in  "doStep01()" method in F07_ParamToConstructor class
+ * -- Replace the call to the DomainEntity(int) constructor in the method orchestrator() with another temporary factory method "createNew2(date, int)". Need to pull up the call to factoryMethodTmp() and getDetermineDefaultDate() from downs-tack
+ * 21) Refactor: Introduce Parameter. Place the cursor on the getDetermineDefaultDate() call in the "doStepB()" method in F07_ParamToConstructor class
+ * 21) Refactor: Introduce Parameter. Place the cursor on the domainEntity1 variable in  "doStepB()" method in F07_ParamToConstructor class
  * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in F07_ParamToConstructor class
  * 23) Refactor: Extract Method: createNew2(). Select snippet in orchestrator() method with two lines "DomainEntity domainEntity = new DomainEntity(defaultMultiplier); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, startingDate);".
- * 24) Refactor: Move Members. Place cursor on newly created "createNew2()" method definition. In "Move Static Members" dialog:
+ * 24) Refactor: Move Members. Place the cursor on newly created "createNew2()" method definition. In "Move Static Members" dialog:
  *  24a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  24b) In "Members to be moved (static only)" grid, select "createNew2()" method.
  *  24c) Click "Refactor" button
@@ -58,23 +59,26 @@ import com.katas.helpers.DomainEntity;
  * 33) Intention: Safe delete DomainEntity(int). Cursor on the original constructor with one parameter.
  *
  */
-class F07_ParamToConstructor {
+class F07b_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;
-        String startingDate = "2022-02-02";
+        doStepA(date, orderSize);
         DomainEntity domainEntity = new DomainEntity(defaultMultiplier);
-        doStep01(domainEntity, startingDate, orderSize);
-        doStep02(date, orderSize);
+        doStepB(domainEntity, orderSize);
     }
 
-    private void doStep01(DomainEntity domainEntity, String date, int orderSize) {
-        domainEntity.getDiscount(date, orderSize);
-    }
-
-    private void doStep02(String date, int orderSize) {
+    private void doStepA(String date, int orderSize) {
         int multiplierForStep2 = 1;
         DomainEntity domainEntity = new DomainEntity(multiplierForStep2);
         domainEntity.getPromotion(date, 19);
+    }
+
+    private void doStepB(DomainEntity domainEntity, int orderSize) {
+        domainEntity.getDiscount(getDetermineDefaultDate(), orderSize);
+    }
+
+    private static String getDetermineDefaultDate() {
+        return "2022-02-02";
     }
 }
