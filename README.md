@@ -5,17 +5,16 @@
 2) Ifs: (See linkt to a video tutorial below)
    - B02_SimplifyingIfBody
    - B03_SimplifyingIfConditions
-   - B04_SplitIfs
-3) Split Loop and Split Variable (see links below)
+3) B04_SplitIfs
+4) B05_SplitLoop 
+5) B06_SplitForLoopWithReturnInside
 
 ## Reorganizing code between neighbouring functions.
-4) F01_UpAndDownStack
-5) F02_TryCatchDownStack
-6) F03_AddFactoryMethods
-7) F04_SeparateLogicFromSingleForLoop
-8) F05_ReturnInsideForLoop
-9) F06_DeDuplicateFunctions
-10) F07_ParamToConstructor
+6) F01_UpAndDownStack 
+7) F02_TryCatchDownStack 
+8) F03_AddFactoryMethods
+9) F04_DeDuplicateFunctions
+10) F05_ParamToConstructor
 
 ## Reorganizing code between classes
 11) IdentifierType

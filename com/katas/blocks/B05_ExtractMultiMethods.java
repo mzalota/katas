@@ -47,7 +47,7 @@ import java.util.List;
  */
 
 
-public class B04_SplitIfs {
+public class B05_ExtractMultiMethods {
 
     public double doingTwoThingsSmaller(boolean isHungry, int defaultValue) {
 

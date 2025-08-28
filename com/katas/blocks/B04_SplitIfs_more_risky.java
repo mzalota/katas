@@ -1,7 +1,6 @@
 package com.katas.blocks;
 
-public class B04_SplitIfs_quicker {
-
+public class B04_SplitIfs_more_risky {
 
     /*
      * We want to refactor and extract first if/else into two functions: calulcateIngredientsCosts() and cookingTimeHours()

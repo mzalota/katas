@@ -1,4 +1,4 @@
-package com.katas.functions;
+package com.katas.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,25 +27,19 @@ import java.util.List;
  *
  */
 
-public class F04_SeparateLogicFromSingleForLoop {
+public class B08_SplitLoop_thru_middle_list {
 
-    public void separateTwoAspectsInOneLoop(List<Integer> list) {
-        ArrayList<Number> numbers = new ArrayList<>();
-        ArrayList<String> strings = new ArrayList<>();
+    public void separateTwoAspectsInOneLoop(List<Integer> list, List<String> strings) {
         for (Integer element : list) {
             if (element % 2 == 0) {
-                System.out.println("Even number. Add to numbers list");
-                numbers.add(element);
-            } else {
-                System.out.println("Odd number. Add to strings list");
-                strings.add(String.valueOf(element));
+                for (String string : strings) {
+                    if (string.equals(Integer.toString(element))) {
+                        System.out.println("Even number. Exists in both lists");
+                    }
+                }
             }
+            System.out.println("Odd number. Skip it");
         }
-        doSomeLogic(numbers, strings);
     }
 
-    private void doSomeLogic(ArrayList<Number> numbers, ArrayList<String> strings) {
-        System.out.println(numbers.size());
-        System.out.println(strings.size());
-    }
 }

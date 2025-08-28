@@ -1,4 +1,4 @@
-package com.katas.functions;
+package com.katas.blocks;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ import java.util.List;
  * C10) Intention "Replace for-each loop with indexed 'for' loop". Cursor on 'for' keyword "matchAtElementIndex" can be replaced with "i"
  *
  */
-public class F05_ReturnInsideForLoop {
+public class B06_SplitForLoopWithReturnInside {
 
     public int extractIndividualLogicOutOfForLoop(List<Integer> list) {
 
