@@ -57,7 +57,7 @@ import java.util.List;
  * C10) Intention "Replace for-each loop with indexed 'for' loop". Cursor on 'for' keyword "matchAtElementIndex" can be replaced with "i"
  *
  */
-public class B06_SplitForLoopWithReturnInside {
+public class B05c_ExtractMultiMethods_SplitLoopWithReturnInside {
 
     public int extractIndividualLogicOutOfForLoop(List<Integer> list) {
 
