@@ -7,7 +7,7 @@ public class B04_SplitVariable {
      *
      * 1) Refactor: Introduce Variable. Place the cursor on the "line" variable assignment just below comment "process second line".
      *   1a) Name the variable "line" - exactly the same name.
-     * 2) In the top "if" block remove lines with the "cookingTimeHours" variables.
+     * 2) Refactor: Rename Variable: new name "secondLine". Place the cursor on the newly created "line" variable.
      * 3) Intention: remove redundant Initializer. Place cursor on the "line" variable that is underlined in red
      * 4) Intention: Move declaration of 'cookingTimeHours' closer to usages. Cursor on cookingTimeHours definition
      * 5) Refactor: Extract Method: first if block into "calulcateIngredientsCosts()" function.
