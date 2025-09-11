@@ -27,7 +27,7 @@ import java.util.List;
  *
  */
 
-public class B05_SplitLoop {
+public class B05a_ExtractMultiMethods_SplitLoop {
 
     public void separateTwoAspectsInOneLoop(List<Integer> list) {
         ArrayList<Number> numbers = new ArrayList<>();
