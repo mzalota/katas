@@ -26,7 +26,7 @@ import java.util.List;
  *
  */
 
-public class B08_SplitLoop_thru_middle_list {
+public class B06_SplitLoop_thru_middle_list {
 
     public void separateTwoAspectsInOneLoop(List<Integer> list, List<String> strings) {
         for (Integer element : list) {
