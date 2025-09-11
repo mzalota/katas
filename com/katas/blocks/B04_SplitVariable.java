@@ -14,16 +14,16 @@ public class B04_SplitVariable {
      *
      */
     public void doingTwoThingsSmaller(boolean isHungry, int defaultValue) {
-        String line = readLibeFromBuffer();
+        String line = readLineFromBuffer();
         String[] headers = line.split(":");
 
-        line = readLibeFromBuffer();
+        line = readLineFromBuffer();
         String[] values = line.split(":");
 
-        String bottomComment = readLibeFromBuffer();
+        String bottomComment = readLineFromBuffer();
     }
 
-    private String readLibeFromBuffer() {
+    private String readLineFromBuffer() {
         return "";
     }
 }
