@@ -3,7 +3,7 @@ package com.katas.blocks;
 public class B04_SplitVariable {
 
     /*
-     * Dont reuse line variable. Create separate variable ("split variable") under comment "process second line".
+     * Don't reuse line variable. Create separate variable ("split variable") under comment "process second line".
      *
      * 1) Refactor: Introduce Variable. Place the cursor on the "line" variable assignment just below comment "process second line".
      *   1a) Name the variable "line" - exactly the same name.
