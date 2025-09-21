@@ -1,4 +1,4 @@
-package com.katas.functions;
+package com.katas.blocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  *
  */
 
-public class F04_SeparateLogicFromSingleForLoop {
+public class B05a_ExtractMultiMethods_SplitLoop {
 
     public void separateTwoAspectsInOneLoop(List<Integer> list) {
         ArrayList<Number> numbers = new ArrayList<>();

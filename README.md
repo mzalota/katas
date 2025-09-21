@@ -2,26 +2,30 @@
 # Refactoring Katas
 ## Reorganizing code within a function
 1) B01_DeDuplicateLongStrings
-2) Ifs: (See linkt to a video tutorial below)
+2) Ifs: 
    - B02_SimplifyingIfBody
    - B03_SimplifyingIfConditions
-   - B04_SplitIfs
-3) Split Loop and Split Variable (see links below)
+3) B04_SplitVariable 
+4) ExtractMultiMethods: 
+   - B05a_ExtractMultiMethods_SplitLoop
+   - B05b_ExtractMultiMethods_SplitIf
+   - B05c_ExtractMultiMethods_SplitLoopWithReturnInside
+5) B06_SplitLoop_thru_middle_list
 
 ## Reorganizing code between neighbouring functions.
-4) F01_UpAndDownStack
-5) F02_TryCatchDownStack
-6) F03_AddFactoryMethods
-7) F04_SeparateLogicFromSingleForLoop
-8) F05_ReturnInsideForLoop
-9) F06_DeDuplicateFunctions
-10) F07_ParamToConstructor
+6) F01_UpAndDownStack 
+7) F02_TryCatchDownStack 
+8) F03_AddFactoryMethods 
+9) F04_DeDuplicateFunctions 
+10) ParamToConstructor:
+   - F05a_ParamToConstructor
+   - F05b_ParamToConstructor_advanced
 
 ## Reorganizing code between classes
-11) IdentifierType
+11) IdentifierType:
    - C01_IdentifierTypeFromParam
    - C02_IdentifierTypeFromField
-12) C03_ExtractRepository
+12) C03_ExtractRepository 
 13) C04_MergeTwoRepositories
 
 
@@ -60,6 +64,13 @@
 32) Replace for-each loop with indexed 'for' loop
 33) Add 'this' qualifier
 34) Safe delete
+35) Remove redundant initializer
+36) Code Completion Basic
+37) Change type
+38) Bring '' into scope
+39) Iterate over
+40) Initialize variable
+41) Create local variable
 
 - Replace Stream API chain with loop
 - Collapse loop with Stream API

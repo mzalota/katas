@@ -7,10 +7,10 @@ import java.util.logging.Logger;
 In getBaselinePrice() method we see two different functions are called to get Price from DB: lookupPriceInDB() and readPrices()
 Lets try to refactor these two functions to see if they actually have identical behavior. (Differences in logging messages can be ignored)
 */
-public class F06_DeDuplicateFunctions {
+public class F04_DeDuplicateFunctions {
 
     private String jdbcConnection = "postgresql://username:password@db.internal.com:5555/PriceDB?" ;
-    private static Logger logger = Logger.getLogger(F06_DeDuplicateFunctions.class.getName());
+    private static Logger logger = Logger.getLogger(F04_DeDuplicateFunctions.class.getName());
 
 
     public double getBaselinePrice(Integer priceGroupId, int tarifCategory) {
@@ -28,7 +28,7 @@ public class F06_DeDuplicateFunctions {
     1) Right-click on DeDuplicateFunctions.java tab on top and select "Split Right". Align lookupPriceInDB() and readPrices() functions. You can jump between them with "Ctrl+Tab" shortcut
     2) Try "Extract Method" refactoring on last two lines from lookupPriceInDB() to see if the middle two lines in readPrices would be detected as identical.
     3) Undo, because IntelliJ did not detect duplication.
-    4) In lookupPriceInDB() use Intention: "Introduce local variable" on "return" statement (or apply "Extract Variable" refactoring to the last line)
+    4) In lookupPriceInDB() use Intention: "Introduce local variable" on "return" statement (or apply "Introduce Variable" refactoring to the last line)
 	5) Now try to "Extract Method" on two lines with queryBuilder() and executeQuery() function calls. Now "Process Duplicates" dialog pops up. Press "Replace" button. Rename this method to "commonLogic01()"
     6) In readPrices() move "String jdbcConnectionForPrice" variable declaration to the top of the function.
     7) Functions look very similar, but log statements differ. Logging is not business logic. Just copy/paste log statements between functions to make log statements identical in both function.

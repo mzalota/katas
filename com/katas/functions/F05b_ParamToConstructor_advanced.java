@@ -31,16 +31,16 @@ import com.katas.helpers.DomainEntity;
  * 18) Refactor: Inline Method: getPromotion(). Select first option: "Inline all and remove the method"
  *
  * -- Replace the call to the DomainEntity(int) constructor in method doStepA() with a temporary factory method "createNew(date, int)".
- * 19) Refactor: Extract Method: createNew(). Select snippet in doStepA() method in F07_ParamToConstructor class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
+ * 19) Refactor: Extract Method: createNew(). Select snippet in doStepA() method in F05b_ParamToConstructor_advanced class with two lines "DomainEntity domainEntity = new DomainEntity(1); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, date);". In "Process Duplicates" dialog click "All" button.
  * 20) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
  *  20a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
  *  20b) In "Members to be moved (static only)" grid, select "createNew()" method.
  *  20c) Click "Refactor" button.
  *
  * -- Replace the call to the DomainEntity(int) constructor in the method orchestrator() with another temporary factory method "createNew2(date, int)". Need to pull up the call to factoryMethodTmp() and getDetermineDefaultDate() from downs-tack
- * 21) Refactor: Introduce Parameter. Place the cursor on the getDetermineDefaultDate() call in the "doStepB()" method in F07_ParamToConstructor class
- * 21) Refactor: Introduce Parameter. Place the cursor on the domainEntity1 variable in  "doStepB()" method in F07_ParamToConstructor class
- * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in F07_ParamToConstructor class
+ * 21) Refactor: Introduce Parameter. Place the cursor on the getDetermineDefaultDate() call in the "doStepB()" method in F05b_ParamToConstructor_advanced class
+ * 21) Refactor: Introduce Parameter. Place the cursor on the domainEntity1 variable in  "doStepB()" method in F05b_ParamToConstructor_advanced class
+ * 22) Refactor: Introduce Variable, domainEntity1. Cursor on the DomainEntity.factoryMethodTmp(domainEntity, startingDate) in  "orchestrator()" method in F05b_ParamToConstructor_advanced class
  * 23) Refactor: Extract Method: createNew2(). Select snippet in orchestrator() method with two lines "DomainEntity domainEntity = new DomainEntity(defaultMultiplier); DomainEntity domainEntity1 = DomainEntity.factoryMethodTmp(domainEntity, startingDate);".
  * 24) Refactor: Move Members. Place the cursor on newly created "createNew2()" method definition. In "Move Static Members" dialog:
  *  24a) In "To (fully qualified name)" box enter "com.katas.helpers.DomainEntity".
@@ -59,7 +59,7 @@ import com.katas.helpers.DomainEntity;
  * 33) Intention: Safe delete DomainEntity(int). Cursor on the original constructor with one parameter.
  *
  */
-class F07b_ParamToConstructor {
+class F05b_ParamToConstructor_advanced {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;

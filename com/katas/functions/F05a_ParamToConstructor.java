@@ -24,7 +24,7 @@ import com.katas.helpers.EntityClass;
  *   11a) In the "Inline Method" dialog select first option: "Inline all and remove the method"
  *
  * -- Replace original constructor in the method doLogic() with a new factory method "createNew(date, int)" that takes two parameters
- * 12) Refactor: Extract Method: createNew(). Select snippet in doLogic() method in F07a_ParamToConstructor class with the middle two lines "EntityClass entityClass = new EntityClass(1); EntityClass entityClass1 = EntityClass.factoryMethodTmp(EntityClass, date);".
+ * 12) Refactor: Extract Method: createNew(). Select snippet in doLogic() method in F05a_ParamToConstructor class with the middle two lines "EntityClass entityClass = new EntityClass(1); EntityClass entityClass1 = EntityClass.factoryMethodTmp(EntityClass, date);".
  * 13) Refactor: Move Members. Place cursor on newly created "createNew()" method definition. In "Move Static Members" dialog:
  *   13a) In "To (fully qualified name)" box enter "com.katas.helpers.EntityClass".
  *   13b) In "Members to be moved (static only)" grid, select "createNew()" method.
@@ -41,7 +41,7 @@ import com.katas.helpers.EntityClass;
  * 20) Refactor: Rename: getPromotionNew() method to getPromotion().
  *
  */
-class F07a_ParamToConstructor {
+class F05a_ParamToConstructor {
 
     public void orchestrator(String date, int orderSize) {
         int defaultMultiplier = 2;
